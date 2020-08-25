@@ -80,13 +80,14 @@ class XHEBaseObject
 		global $bWarningPHPIfNotConnected;
 		if ($bClosePHPIfNotConnected===true && $html===false)
 		{
-  			echo("\nпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ $url?$postvars пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ.пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ.\n");			
+  			echo("\nКомманда $url?$postvars не выполнена.Нет соединения с хуман эмулятором, проверьте совпадение портов и их доступность а также что програма запущена и не зависла.\n");			
 			die("XWeb@exit");
 		}
                 if ($bWarningPHPIfNotConnected===true && $html===false)
   			echo("Connect from PHP to XHE not found. Check XHE and PHP port and connection to xhe.\nCommand $url?$postvars not runned.\n");
     		
 	        $html = trim($html);
+		usleep(10000); 
 		return $html;
 	}
 

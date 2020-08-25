@@ -15,7 +15,7 @@ class XHEFTP extends XHEFTPCompatible
 	/////////////////////////////////////////////////////////////////////////////////////////////////
 
 	// соединится с фтп сервером
-        function connect($server,$user="",$password="",$iport="",$flag_passive=false,$timeout=-1)
+        function connect($server,$user="",$password="",$iport="",$flag_passive=true,$timeout=-1)
 	{
                 if ($iport=="");
 			$iport=21;
@@ -34,6 +34,21 @@ class XHEFTP extends XHEFTPCompatible
 	   	$params = array( );
 	    	return $this->call_boolean(__FUNCTION__,$params);
 	}
+
+	/////////////////////////////////////////////////////////////////////////////////////////////////
+
+	// получить список файлов в текущей папке
+	function list_files($server,$folder="")
+	{
+	   	$params = array( "server" => $server , "folder" => $folder);		
+	    	return explode("\n",$this->call_get(__FUNCTION__,$params));
+	}        
+	// получить список папок в текущей папке
+	function list_folders($server,$folder="")
+	{
+	   	$params = array( "server" => $server, "folder" => $folder );		
+	    	return explode("\n",$this->call_get(__FUNCTION__,$params));
+	}        
 
 	/////////////////////////////////////////////////////////////////////////////////////////////////
 

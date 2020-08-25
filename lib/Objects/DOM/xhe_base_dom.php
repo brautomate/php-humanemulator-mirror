@@ -3,7 +3,7 @@
 class XHEBaseDOM extends XHEBaseObject
 {
 	// check and wait element exist by number
-	public function wait_element_exist_by_number($number,$frame=-1)
+	protected function z_wait_element_exist_by_number($number,$frame=-1)
 	{
  		global $bWaitElementExistBeforeAction;
 		global $iSecondsWaitElementExistBeforeAction;
@@ -24,7 +24,7 @@ class XHEBaseDOM extends XHEBaseObject
 		return true;
 	}
 	// check and wait element exist by name
-	public function wait_element_exist_by_name($name,$frame=-1)
+	protected function z_wait_element_exist_by_name($name,$frame=-1)
 	{
  		global $bWaitElementExistBeforeAction;
 		global $iSecondsWaitElementExistBeforeAction;
@@ -45,7 +45,7 @@ class XHEBaseDOM extends XHEBaseObject
 		return true;
 	}
 	// check and wait element exist by id
-	public function wait_element_exist_by_id($id,$exactly,$frame=-1)
+	protected function z_wait_element_exist_by_id($id,$exactly,$frame=-1)
 	{
  		global $bWaitElementExistBeforeAction;
 		global $iSecondsWaitElementExistBeforeAction;
@@ -66,7 +66,7 @@ class XHEBaseDOM extends XHEBaseObject
 		return true;
 	}
 	// check and wait element exist by inner text
-	public function wait_element_exist_by_inner_text($inner_text,$exactly,$frame=-1)
+	protected function z_wait_element_exist_by_inner_text($inner_text,$exactly,$frame=-1)
 	{
  		global $bWaitElementExistBeforeAction;
 		global $iSecondsWaitElementExistBeforeAction;
@@ -87,7 +87,7 @@ class XHEBaseDOM extends XHEBaseObject
 		return true;
 	}
 	// check and wait element exist by inner html
-	public function wait_element_exist_by_inner_html($inner_html,$exactly,$frame=-1)
+	protected function z_wait_element_exist_by_inner_html($inner_html,$exactly,$frame=-1)
 	{
  		global $bWaitElementExistBeforeAction;
 		global $iSecondsWaitElementExistBeforeAction;
@@ -108,7 +108,7 @@ class XHEBaseDOM extends XHEBaseObject
 		return true;
 	}
 	// check and wait element exist by outer text
-	public function wait_element_exist_by_outer_text($outer_text,$exactly,$frame=-1)
+	protected function z_wait_element_exist_by_outer_text($outer_text,$exactly,$frame=-1)
 	{
  		global $bWaitElementExistBeforeAction;
 		global $iSecondsWaitElementExistBeforeAction;
@@ -129,7 +129,7 @@ class XHEBaseDOM extends XHEBaseObject
 		return true;
 	}
 	// check and wait element exist by outer html
-	public function wait_element_exist_by_outer_html($outer_html,$exactly,$frame=-1)
+	protected function z_wait_element_exist_by_outer_html($outer_html,$exactly,$frame=-1)
 	{
  		global $bWaitElementExistBeforeAction;
 		global $iSecondsWaitElementExistBeforeAction;
@@ -150,7 +150,7 @@ class XHEBaseDOM extends XHEBaseObject
 		return true;
 	}
 	// check and wait element exist by attribute
-	public function wait_element_exist_by_attribute($attr_name,$attr_value,$exactly,$frame=-1)
+	protected function z_wait_element_exist_by_attribute($attr_name,$attr_value,$exactly,$frame=-1)
 	{
  		global $bWaitElementExistBeforeAction;
 		global $iSecondsWaitElementExistBeforeAction;
@@ -171,7 +171,7 @@ class XHEBaseDOM extends XHEBaseObject
 		return true;
 	}
 	// check and wait element exist by xpath
-	public function wait_element_exist_by_xpath($xpath)
+	protected function z_wait_element_exist_by_xpath($xpath)
 	{
  		global $bWaitElementExistBeforeAction;
 		global $iSecondsWaitElementExistBeforeAction;
@@ -192,7 +192,7 @@ class XHEBaseDOM extends XHEBaseObject
 		return true;
 	}
 	// check and wait element exist by attribute in form by name
-	public function wait_element_exist_by_attribute_by_form_name($attr_name,$attr_value,$exactly,$form_name,$frame=-1)
+	protected function z_wait_element_exist_by_attribute_by_form_name($attr_name,$attr_value,$exactly,$form_name,$frame=-1)
 	{
  		global $bWaitElementExistBeforeAction;
 		global $iSecondsWaitElementExistBeforeAction;
@@ -213,7 +213,7 @@ class XHEBaseDOM extends XHEBaseObject
 		return true;
 	}
 	// check and wait element exist by attribute in form by number
-	public function wait_element_exist_by_attribute_by_form_number($attr_name,$attr_value,$exactly,$form_number,$frame=-1)
+	protected function z_wait_element_exist_by_attribute_by_form_number($attr_name,$attr_value,$exactly,$form_number,$frame=-1)
 	{
  		global $bWaitElementExistBeforeAction;
 		global $iSecondsWaitElementExistBeforeAction;

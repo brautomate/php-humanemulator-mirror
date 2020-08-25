@@ -54,5 +54,22 @@ class XHEBrowserCompatible extends XHEBaseObject
 		$params = array( "referer" => $referer );
 		return $this->call_boolean(__FUNCTION__,$params);
    	}	
+	// разрешить вебсокеты
+	function enable_web_socket($enable=true,$refresh=true)
+	{
+		$params = array( "enable" => $enable , "refresh" => $refresh  );
+		return $this->call_boolean(__FUNCTION__,$params);
+	}	
+   	// проверить что разрешены вебсокеты в браузере
+	function is_enable_web_socket()
+	{
+		$params = array( );
+		return $this->call_boolean(__FUNCTION__,$params);
+	}
+   	// задать Internationalization API
+	function set_internazionalization($locale="",$timeZone="",$calendar="",$numberingSystem="",$year="",$month="",$day="")
+	{	
+		return $this->set_internationalization($locale,$timeZone,$calendar,$numberingSystem,$year,$month,$day);
+   	}	
 };		
 ?>

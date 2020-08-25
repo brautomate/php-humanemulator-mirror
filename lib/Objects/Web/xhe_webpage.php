@@ -123,7 +123,7 @@ class XHEWebPage extends XHEWebPageCompatible
 
 	///////////////////////////////////////////////////////////////////////////////////////////////////
 
-	// сохранить скриншот заданной части страницы в файл-картинку
+	// сохранить скриншот заданной части видимой страницы в файл-картинку
 	function print_screen($filepath,$xl=-1,$yt=-1,$xr=-1,$yb=-1,$as_gray=false)
 	{
 	   	$params = array( "filepath" => $filepath, "xl" => $xl , "yt" => $yt , "xr" => $xr , "yb" => $yb , "as_gray" => $as_gray);
@@ -133,6 +133,12 @@ class XHEWebPage extends XHEWebPageCompatible
 	function print_to_pdf($filepath)
 	{
 	   	$params = array( "filepath" => $filepath );
+	    	return $this->call_boolean(__FUNCTION__,$params);
+	}
+	// сохранить скриншот заданной части всей страницы в файл-картинку
+	function print_body($filepath,$xl=-1,$yt=-1,$xr=-1,$yb=-1,$as_gray=false)
+	{
+	   	$params = array( "filepath" => $filepath, "xl" => $xl , "yt" => $yt , "xr" => $xr , "yb" => $yb , "as_gray" => $as_gray);
 	    	return $this->call_boolean(__FUNCTION__,$params);
 	}
      	// получить X - координату заданной картинки на странице

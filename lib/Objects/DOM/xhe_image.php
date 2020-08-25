@@ -168,38 +168,6 @@ class XHEImage extends XHEImageCompatible
                	global $rucaptcha;
                	return $rucaptcha->recognize($file_path,$key,$path,$is_verbose,$rtimeout,$mtimeout,$is_phrase,$is_regsense,$is_numeric,$min_len,$max_len,$is_russian);
         }
-        // распознать капчу из картинки через сервис captcha24.com
-        function recognize_by_captcha24($src,$file_path,$key,$path='http://captcha24.com',$is_verbose = true, $rtimeout = 5, $mtimeout = 120, $is_phrase = 0, $is_regsense = 0, $is_numeric = 0, $min_len = 0, $max_len = 0,$frame=-1,$is_russian = 0)
-        {
-		// save
-		if ($src!="")
-                {
-			$this->wait_element_exist_by_attribute("src",$src,false,$frame);		
-
-			if (!$this->screenshot_by_src($file_path,$src,false,$frame))
-				return false;
-                }
-
-		// recognize
-               	global $captcha24;
-               	return $captcha24->recognize($file_path,$key,$path,$is_verbose,$rtimeout,$mtimeout,$is_phrase,$is_regsense,$is_numeric,$min_len,$max_len,$is_russian);
-        }
-        // распознать капчу из картинки через сервис ripcaptcha.com
-        function recognize_by_ripcaptcha($src,$file_path,$key,$path='http://ripcaptcha.com',$is_verbose = true, $rtimeout = 5, $mtimeout = 120, $is_phrase = 0, $is_regsense = 0, $is_numeric = 0, $min_len = 0, $max_len = 0,$frame=-1,$is_russian = 0)
-        {
-		// save
-		if ($src!="")
-                {
-			$this->wait_element_exist_by_attribute("src",$src,false,$frame);		
-
-			if (!$this->screenshot_by_src($file_path,$src,false,$frame))
-				return false;
-                }
-
-		// recognize
-               	global $ripcaptcha;
-               	return $ripcaptcha->recognize($file_path,$key,$path,$is_verbose,$rtimeout,$mtimeout,$is_phrase,$is_regsense,$is_numeric,$min_len,$max_len,$is_russian);
-        }
         // распознать капчу из картинки через сервис bypasscaptcha.com
         function recognize_by_bypasscaptcha($systemkey,$file_path,$src="",$frame=-1)
         {
@@ -217,24 +185,6 @@ class XHEImage extends XHEImageCompatible
           	global $bypasscaptcha;
           	$bypasscaptcha->set_system_key($systemkey);
           	return $bypasscaptcha->recognize($file_path);
-        }        	
-        // распознать капчу из картинки через сервис captchabot.com
-        function recognize_by_captchabot($systemkey,$file_path,$src="",$code=0,$frame=-1)
-        {
-		// save
-		if ($src!="")
-		{
-			$this->wait_element_exist_by_attribute("src",$src,false,$frame);
-
-			if (!$this->screenshot_by_src($file_path,$src,false,$frame))
-				return false;
-		}
-
-          
-		// recognize
-          	global $captchabot;
-          	$captchabot->set_system_key($systemkey);
-          	return $captchabot->recognize($file_path,$code);
         }        	
 
         /////////////////////////////////////////////////////////////////////////////////////////////////////

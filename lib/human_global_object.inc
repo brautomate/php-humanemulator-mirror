@@ -2,7 +2,6 @@
 
 // global object for custom functions and custom object members
 global $anticapcha;
-global $captchabot;
 global $app;
 global $windows;
 global $window;

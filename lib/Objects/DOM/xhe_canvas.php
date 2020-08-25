@@ -2,7 +2,7 @@
 ////////////////////////////////////////////////////// Canvas ///////////////////////////////////////////////
 class XHECanvas  extends XHEBaseDOMVisual
 {
-	/////////////////////////////////////// ÑÅÐÂÈÑÍÛÅ ÔÓÍÊÖÈÈ //////////////////////////////////////////
+	/////////////////////////////////////////////////////////////////////////////////
 	// server initialization
 	function __construct($server,$password="")
 	{    
@@ -11,5 +11,14 @@ class XHECanvas  extends XHEBaseDOMVisual
 		$this->prefix = "Canvas";
 	}
 	/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+	// íàðèñîâàòü êàðòèíêó ñ çàäàííûì íîìåðîì
+	function draw_image_by_number($number,$path, $frame=-1) 
+	{
+		$this->wait_element_exist_by_number($number,$frame);		
+
+		$params = array( "number" => $number , "path" => $path , "frame" => $frame );
+		return $this->call_boolean(__FUNCTION__,$params);
+	}
 };		
 ?>

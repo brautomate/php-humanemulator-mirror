@@ -9,7 +9,7 @@ class XHEAnticapcha extends XHEBaseCaptcha_1
         function __construct($server)
         {
 		$this->server = $server;
-		$this->soft_id="15";
+		$this->soft_id="927";
         }
 
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////

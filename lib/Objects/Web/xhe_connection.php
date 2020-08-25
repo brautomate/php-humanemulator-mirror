@@ -63,9 +63,9 @@ class XHEConnection extends XHEBaseObject
 	///////////////////////////////////////////////////////////////////////////////////////////////
 
 	// установить текущий локальный ай-пи адрес
-	function set_local_ip($number,$ip,$subnetMask="",$gateway="")
+	function set_local_ip($number,$ip,$subnetMask="",$gateway="",$defaultDNS="",$subDNS="")
 	{
-	   	$params = array( "number" => $number , "ip" => $ip , "subnetMask" => $subnetMask , "gateway" => $gateway );
+	   	$params = array( "number" => $number , "ip" => $ip , "subnetMask" => $subnetMask , "gateway" => $gateway , "defaultDNS" => $defaultDNS, "subDNS" => $subDNS);
 	    	$res = $this->call_boolean(__FUNCTION__,$params);
 		sleep(5);
 		return $res;

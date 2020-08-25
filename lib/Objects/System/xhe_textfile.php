@@ -117,9 +117,9 @@ class XHETextFile extends XHEBaseObject
 	/////////////////////////////////////////////////////////////////////////////////////////////////////
 
      	// записать файл
-   	function write_file($file,$content,$timeout=-1,$create_folders=false) 
+   	function write_file($file,$content,$timeout=-1,$create_folders=false,$encoding="") 
    	{
-		$params = array( "file" => $file , "content" => $content , "create_folders" => $create_folders );
+		$params = array( "file" => $file , "content" => $content , "create_folders" => $create_folders , "encoding" => $encoding);
 		return $this->call_boolean(__FUNCTION__,$params,$timeout);
    	}
         // добавить строку в файл

@@ -312,6 +312,12 @@ class XHEWindowInterface extends XHEWindowInterfacesCompatible
 		$params = array( "inner_number" => $this->inner_number );
 		return $this->call_boolean(__FUNCTION__,$params);
    	}   
+	// есть ли пользовательский фокус ввода
+   	function is_foreground()
+   	{
+		$params = array( "inner_number" => $this->inner_number );
+		return $this->call_boolean(__FUNCTION__,$params);
+   	}   
 	// дочернее ли
    	function is_child()
    	{

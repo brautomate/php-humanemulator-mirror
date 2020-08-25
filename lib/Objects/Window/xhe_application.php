@@ -216,9 +216,9 @@ class XHEApplication extends XHEApplicationCompatible
 		return $this->call_boolean(__FUNCTION__,$params);
 	}
 	// получить тип курсора
-	function get_cursor_type($x=-1,$y=-1)
+	function get_cursor_type($x=-1,$y=-1,$as_text=false)
 	{
-		$params = array( "x" => $x , "y" => $y );
+		$params = array( "x" => $x , "y" => $y , "as_text" => $as_text );
 		return $this->call_get(__FUNCTION__,$params);
 	}
 
@@ -251,6 +251,12 @@ class XHEApplication extends XHEApplicationCompatible
    	}
 	// выйти из программы
    	function exitapp()
+   	{
+		$params = array( );
+		return $this->call_boolean(__FUNCTION__,$params);
+   	}
+	// остановить скрипт
+   	function stop_script()
    	{
 		$params = array( );
 		return $this->call_boolean(__FUNCTION__,$params);
@@ -375,7 +381,7 @@ class XHEApplication extends XHEApplicationCompatible
 	// выполнить скрипт по заданному пути
    	function run_script($path,$params="")
    	{
-		$params = array(  "path" => $path , "params" => $params );
+		$params = array(  "path" => $path , "params_" => $params );
 		return $this->call_get(__FUNCTION__,$params);
    	}
 	// выполнить содержимое, как bat-файл по заданному пути

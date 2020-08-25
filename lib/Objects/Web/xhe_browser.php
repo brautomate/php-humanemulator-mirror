@@ -56,10 +56,10 @@ class XHEBrowser extends XHEBrowserCompatible
 		$params = array( );
 		return $this->call_boolean(__FUNCTION__,$params);
 	}
-        // закрыть все открытые закладки (Main не закрывается)
-	function close_all_tabs()
+        // закрыть все открытые закладки
+	function close_all_tabs($close_type="")
 	{
-		$params = array( );
+		$params = array( "close_type" => $close_type );
 		return $this->call_boolean(__FUNCTION__,$params);
 	}
 
@@ -72,7 +72,7 @@ class XHEBrowser extends XHEBrowserCompatible
 		$res=$this->call_boolean(__FUNCTION__,$params);
 		if ($use_wait)
 			$this->wait_for();
-		if ($this->get_last_navigation_error()!="")
+		if ($this->get_last_navigation_error()!="" || $this->is_busy())
 			return false;
 		else
 			return true;
@@ -373,11 +373,10 @@ class XHEBrowser extends XHEBrowserCompatible
 		$params = array( "enable" => $enable , "refresh" => $refresh  );
 		return $this->call_boolean(__FUNCTION__,$params);
 	}
-	// разрешить вебсокеты
-	function enable_web_socket($enable=true,$refresh=true)
+	// разрешить WebRTC
+	function enable_web_rtc($enable=true,$refresh=true)
 	{
-		$params = array( "enable" => $enable , "refresh" => $refresh  );
-		return $this->call_boolean(__FUNCTION__,$params);
+		return $this->enable_web_socket($enable,$refresh);
 	}
 	// установить режим общего кэша и кукисов для всех копий xhe
 	function enable_common_cache_and_cookies($enable=true,$refresh=true)
@@ -399,6 +398,12 @@ class XHEBrowser extends XHEBrowserCompatible
 		sleep(1);
 		$this->wait_for();
 		return $res;
+	}
+	// включить или выключить browser notification
+	function enable_browser_notification($enable=true,$show=true,$refresh=true)
+	{
+		$params = array( "enable" => $enable , "show" => $show , "refresh" => $refresh );
+		return $this->call_boolean(__FUNCTION__,$params);
 	}
 
   	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	
@@ -488,10 +493,9 @@ class XHEBrowser extends XHEBrowserCompatible
 		return $this->call_boolean(__FUNCTION__,$params);
 	}
    	// проверить что разрешены вебсокеты в браузере
-	function is_enable_web_socket()
+	function is_enable_web_rtc()
 	{
-		$params = array( );
-		return $this->call_boolean(__FUNCTION__,$params);
+		return $this->is_enable_web_socket();
 	}
    	// проверить что установлен режим общий кэш и куки для всех копий xhe
 	function is_enable_common_cache_and_cookies()
@@ -543,7 +547,7 @@ class XHEBrowser extends XHEBrowserCompatible
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	// установить прокси
-	function enable_proxy($connection,$proxy,$recreate = false)
+	function enable_proxy($connection,$proxy,$recreate = true)
 	{     
 		$params = array( "connection" => $connection , "proxy" => $proxy );
 		$res = $this->call_boolean(__FUNCTION__,$params);
@@ -555,7 +559,7 @@ class XHEBrowser extends XHEBrowserCompatible
 		return $res;
 	}
 	// убрать прокси
-	function disable_proxy($connection="",$recreate = false)
+	function disable_proxy($connection="",$recreate = true)
 	{
 		$params = array( "connection" => $connection );
 		$res = $this->call_boolean(__FUNCTION__,$params);
@@ -568,9 +572,9 @@ class XHEBrowser extends XHEBrowserCompatible
 		return $res;
   	}	
 	// получить текущий прокси
-	function get_current_proxy($connection="")
+	function get_current_proxy($connection="",$with_auth=false)
 	{
-		$params = array( "connection" => $connection );
+		$params = array( "connection" => $connection , "with_auth" => $with_auth);
 		return $this->call_get(__FUNCTION__,$params);
   	}	
 
@@ -738,10 +742,22 @@ class XHEBrowser extends XHEBrowserCompatible
 		$params = array( "match_name" => $match_name , "clear_session" => $clear_session , "clear_flash" => $clear_flash  );
 		return $this->call_boolean(__FUNCTION__,$params);
 	}
-   	// получить куки для текущей страницы
-	function get_cookie()
+	// очистить Local Storage
+	function clear_local_storage()
 	{
 		$params = array( );
+		return $this->call_boolean(__FUNCTION__,$params);
+	}
+	// очистить Indexed DB
+	function clear_indexed_db()
+	{
+		$params = array( );
+		return $this->call_boolean(__FUNCTION__,$params);
+	}
+   	// получить куки для текущей страницы
+	function get_cookie($as_json=false)
+	{
+		$params = array( "as_json" => $as_json );
 		return $this->call_get(__FUNCTION__,$params);
    	}	
 	// установить куки
@@ -752,17 +768,23 @@ class XHEBrowser extends XHEBrowserCompatible
    	}
 
    	// получить куки для заданного урла
-	function get_cookie_for_url($url,$name)
+	function get_cookie_for_url($url,$name,$as_json=false)
 	{
-		$params = array( "url" => $url , "name" => $name );
+		$params = array( "url" => $url , "name" => $name , "as_json" => $as_json);
 		return $this->call_get(__FUNCTION__,$params);
    	}	
 	// задать куки для заданного урла
-	function set_cookie_for_url($url,$name,$cookie)
+	function set_cookie_for_url($url,$name,$cookie,$expires="",$domain="",$path="",$httpOnly=false,$secure=false)
 	{
-		$params = array( "url" => $url , "name" => $name , "cookie" => $cookie );
+		$params = array( "url" => $url , "name" => $name , "cookie" => $cookie , "expires" => $expires, "domain" => $domain, "path" => $path, "secure" => $secure, "httpOnly" => $httpOnly);
 		return $this->call_boolean(__FUNCTION__,$params);
    	}
+	// импорт куков из заданног формата
+	function import_cookies($url,$cookies)
+	{
+		$params = array( "url" => $url , "cookies" => $cookies);
+		return $this->call_boolean(__FUNCTION__,$params);
+	}
 
    	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	
 
@@ -955,10 +977,16 @@ class XHEBrowser extends XHEBrowserCompatible
 		$params = array( "latitude" => $latitude, "longitude" => $longitude, "accuracy" => $accuracy, "altitude" => $altitude, "altitudeAccuracy" => $altitudeAccuracy, "heading" => $heading, "speed" => $speed);
 		return $this->call_boolean(__FUNCTION__,$params);
    	}	
-   	// задать информацию об оборудовании
-	function set_hardware_info($hardwareConcurrency=-1,$deviceMemory=-1)
+   	// задать разрешения
+	function set_permissions($state="")
 	{
-		$params = array( "hardwareConcurrency" => $hardwareConcurrency , "deviceMemory" => $deviceMemory);
+		$params = array( "state" => $state );
+		return $this->call_boolean(__FUNCTION__,$params);
+   	}	
+   	// задать информацию об оборудовании
+	function set_hardware_info($hardwareConcurrency=-1,$deviceMemory=-1,$devicePixelRatio=-1)
+	{
+		$params = array( "hardwareConcurrency" => $hardwareConcurrency , "deviceMemory" => $deviceMemory, "devicePixelRatio" => $devicePixelRatio);
 		return $this->call_boolean(__FUNCTION__,$params);
    	}	
    	// задать язык
@@ -976,9 +1004,9 @@ class XHEBrowser extends XHEBrowserCompatible
 		return $this->call_boolean(__FUNCTION__,$params);
    	}	
 	// задать информацию о приложении
-	function set_app_info($appName="", $appCodeName="", $appMinorVersion="", $product="", $productSub="")
+	function set_app_info($appName="", $appCodeName="", $appMinorVersion="", $product="", $productSub="", $vendor="", $vendorSub="")
 	{
-		$params = array( "appName" => $appName , "appCodeName" => $appCodeName , "appMinorVersion" => $appMinorVersion , "product" => $product , "productSub" => $productSub );
+		$params = array( "appName" => $appName , "appCodeName" => $appCodeName , "appMinorVersion" => $appMinorVersion , "product" => $product , "productSub" => $productSub , "vendor" => $vendor, "vendorSub" => $vendorSub);
 		return $this->call_boolean(__FUNCTION__,$params);
 	}
    	// указать сайтам не отслеживать наши действия
@@ -988,15 +1016,21 @@ class XHEBrowser extends XHEBrowserCompatible
 		return $this->call_boolean(__FUNCTION__,$params);
    	}	
 	// задать информацию о плагинах
-	function set_plugins_info($plugins_info="")
+	function set_plugins_info($plugins_info="",$mime_types="")
 	{
-		$params = array( "plugins_info" => $plugins_info );
+		$params = array( "plugins_info" => $plugins_info , "mime_types" => $mime_types );
 		return $this->call_boolean(__FUNCTION__,$params);
 	}
    	// задать часовой пояс
 	function set_time_zone($time_zone=-100)
 	{
 		$params = array( "time_zone" => $time_zone );
+		return $this->call_boolean(__FUNCTION__,$params);
+   	}	
+   	// задать Internationalization API
+	function set_internationalization($locale="",$timeZone="",$calendar="",$numberingSystem="",$year="",$month="",$day="")
+	{
+		$params = array( "locale" => $locale, "timeZone" => $timeZone, "calendar" => $calendar, "numberingSystem" => $numberingSystem, "year" => $year, "month" => $month, "day" => $day );
 		return $this->call_boolean(__FUNCTION__,$params);
    	}	
    	// задать информацию о touch
@@ -1006,9 +1040,27 @@ class XHEBrowser extends XHEBrowserCompatible
 		return $this->call_boolean(__FUNCTION__,$params);
    	}	
    	// указать - отправлять заданные данные canvas (для смены finger print)
-	function set_canvas_toDataURL($toDataURL="")
+	function set_canvas_toDataURL($toDataURL="",$jsChangeNoise="",$pathToImage="",$imageDate="")
 	{
-		$params = array( "toDataURL" => $toDataURL );
+		$params = array( "toDataURL" => $toDataURL , "jsChangeNoise" => $jsChangeNoise, "pathToImage" => $pathToImage , "imageDate" => $imageDate);
+		return $this->call_boolean(__FUNCTION__,$params);
+   	}	
+   	// задать случайный Web GL fingerprint
+	function set_random_webgl_fingerprint($enable=true,$noiseImage="",$noiseParams="",$unmaskedVendor="",$unmaskedRenderer="",$glVersion="",$shadingLanguageVersion="",$vendor="",$renderer="")
+	{
+		$params = array( "enable" => $enable, "noiseImage" => $noiseImage, "noiseParams" => $noiseParams, "glVersion" => $glVersion, "shadingLanguageVersion" => $shadingLanguageVersion, "vendor" => $vendor, "renderer" => $renderer, "unmaskedVendor" => $unmaskedVendor,"unmaskedRenderer" => $unmaskedRenderer );
+		return $this->call_boolean(__FUNCTION__,$params);
+   	}	
+   	// задать случайный Audio fingerprint
+	function set_random_audio_fingerprint($noiseAudio="",$noiseFrequence="")
+	{
+		$params = array( "noiseAudio" => $noiseAudio, "noiseFrequence" => $noiseFrequence );
+		return $this->call_boolean(__FUNCTION__,$params);
+   	}	
+   	// задать случайный Bounds fingerprint
+	function set_random_bounds_fingerprint($noise=-1)
+	{
+		$params = array( "noise" => $noise );
 		return $this->call_boolean(__FUNCTION__,$params);
    	}	
         // получить реферер
@@ -1067,7 +1119,7 @@ class XHEBrowser extends XHEBrowserCompatible
         // послать пост запрос на заданный урл
 	function send_post_query($url,$data="",$type="application/x-www-form-urlencoded",$set_as_page=false,$add_header="")
 	{
-		$params = array( "url" => $url , "data" => $data , "type" => $type , "set_as_page" => $set_as_page , "add_header" => $add_header );
+		$params = array( "url" => $url , "data" => base64_encode($data) , "type" => $type , "set_as_page" => $set_as_page , "add_header" => $add_header );
 		$res=$this->call_get(__FUNCTION__,$params);
 		if($res!="")
                    return $res;
@@ -1187,6 +1239,12 @@ class XHEBrowser extends XHEBrowserCompatible
 	   	$params = array( "enable" => $enable );
 	    	return $this->call_boolean(__FUNCTION__,$params);
 	}
+   	// задать fps
+	function set_fps($fps)
+	{
+	   	$params = array( "fps" => $fps );
+	    	return $this->call_boolean(__FUNCTION__,$params);
+	}
    	// управление режимом изолированных закладок
 	function enable_isolate_tabs($enable=true)
 	{
@@ -1218,9 +1276,9 @@ class XHEBrowser extends XHEBrowserCompatible
 
    	}	
    	// сохранить профиль
-	function save_profile($path)
+	function save_profile($path,$name="",$description="")
 	{
-	   	$params = array( "path" => $path );
+	   	$params = array( "path" => $path , "name" => $name , "description" => $description);
 	    	return $this->call_boolean(__FUNCTION__,$params);
    	}	
    	// загрузить профиль
@@ -1229,6 +1287,21 @@ class XHEBrowser extends XHEBrowserCompatible
 	   	$params = array( "path" => $path );
 	    	return $this->call_boolean(__FUNCTION__,$params);
    	}	
+
+	////////////////////////////////////////////////////////////////////////////////////////////////////
+
+	// начать запись видео
+	function start_video_record($path,$fps=10,$quality=70,$x=-1,$y=-1,$width=-1,$height=-1,$as_gray=false)
+	{
+		$params = array( "path" => $path, "fps" => $fps, "quality" => $quality, "x" => $x, "y" => $y, "width" => $width, "height" => $height , "as_gray" => $as_gray);
+		return $this->call_boolean(__FUNCTION__,$params);
+	}
+	// остановить запись видео
+	function stop_video_record()
+	{
+		$params = array(  );
+		return $this->call_boolean(__FUNCTION__,$params);
+	}
 
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	
 };

@@ -110,9 +110,9 @@ class XHEDebug extends XHEBaseObject
 		return $this->call_get(__FUNCTION__,$params);
 	}	
 	// оптимизировать размер памяти, занимаемый программой
-	function optimize_memory()
+	function optimize_memory($onlyGarbageCollector=false)
 	{
-		$params = array( );
+		$params = array( "onlyGarbageCollector" => $onlyGarbageCollector );
 		return $this->call_boolean(__FUNCTION__,$params);
 	}
 	// получить число ресурсов, использованных хуманом (0 - GDI, 1 - USER ,  2 - бывший максимум GDI , 4 - бывший максимум USER , 5 - число HANDLE использованых програмой)
@@ -124,6 +124,12 @@ class XHEDebug extends XHEBaseObject
 		
 	// получить id процесса хумана
 	function get_process_id()
+	{
+		$params = array( );
+		return $this->call_get(__FUNCTION__,$params);
+	}
+	// получить использованеи процессора
+	function get_cpu_usage()
 	{
 		$params = array( );
 		return $this->call_get(__FUNCTION__,$params);

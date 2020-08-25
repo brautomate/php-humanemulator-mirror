@@ -19,50 +19,56 @@ class XHEMouse extends XHEBaseObject
    	/////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	// сэмулировать щелчок левой кнопки мыши в заданной точке
-	function click($x="",$y="",$scroll=true)
+	function click($x="-1",$y="-1",$scroll=true)
 	{
 		$params = array( "x" => $x , "y" => $y , "scroll" => $scroll  );
 		return $this->call_boolean(__FUNCTION__,$params);
 	}
 	// щелкнуть мышью в координатах экрана
-	function click_to_screen($x="",$y="")
+	function click_to_screen($x="-1",$y="-1")
 	{
 		$params = array( "x" => $x , "y" => $y  );
 		return $this->call_boolean(__FUNCTION__,$params);
 	}
    	// сэмулировать двойной щелчок левой кнопки мыши
-   	function double_click($x="",$y="",$scroll=true)
+   	function double_click($x="-1",$y="-1",$scroll=true)
    	{
 		$params = array( "x" => $x , "y" => $y , "scroll" => $scroll  );
 		return $this->call_boolean(__FUNCTION__,$params);
    	}
    	// сэмулировать нажатие на левую кнопку мыши
-   	function left_button_down($x="",$y="",$scroll=true)
+   	function left_button_down($x="-1",$y="-1",$scroll=true)
    	{
 		$params = array( "x" => $x , "y" => $y , "scroll" => $scroll  );
 		return $this->call_boolean(__FUNCTION__,$params);
    	}
    	// сэмулировать отпускание левой кнопки мыши
-   	function left_button_up($x="",$y="",$scroll=true)
+   	function left_button_up($x="-1",$y="-1",$scroll=true)
    	{
 		$params = array( "x" => $x , "y" => $y , "scroll" => $scroll  );
 		return $this->call_boolean(__FUNCTION__,$params);
    	}
 
    	// сэмулировать нажатие на правую кнопку мыши
-   	function right_button_click($x="",$y="",$scroll=true)
+   	function right_button_click($x="-1",$y="-1",$scroll=true)
    	{
 		$params = array( "x" => $x , "y" => $y , "scroll" => $scroll  );
 		return $this->call_boolean(__FUNCTION__,$params);
 	}
+   	// сэмулировать нажатие на правую кнопку мыши в координатах десктопа
+   	function right_button_click_to_screen($x="-1",$y="-1")
+   	{
+		$params = array( "x" => $x , "y" => $y );
+		return $this->call_boolean(__FUNCTION__,$params);
+	}
    	// сэмулировать отпускание правой кнопки мыши
-   	function right_button_down($x="",$y="",$scroll=true)
+   	function right_button_down($x="-1",$y="-1",$scroll=true)
    	{
 		$params = array( "x" => $x , "y" => $y , "scroll" => $scroll  );
 		return $this->call_boolean(__FUNCTION__,$params);
    	}
    	// сэмулировать щелчок правой кнопки мыши в заданной точке
-   	function right_button_up($x="",$y="",$scroll=true)
+   	function right_button_up($x="-1",$y="-1",$scroll=true)
    	{
 		$params = array( "x" => $x , "y" => $y , "scroll" => $scroll  );
 		return $this->call_boolean(__FUNCTION__,$params);
@@ -150,44 +156,44 @@ class XHEMouse extends XHEBaseObject
    	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	// отправить щелчок левой кнопки мыши в заданной точке
-	function send_click($x="",$y="",$scroll=true)
+	function send_click($x="-1",$y="-1",$scroll=true)
 	{
 		$params = array( "x" => $x , "y" => $y , "scroll" => $scroll );
 		return $this->call_boolean(__FUNCTION__,$params);
 	}
 	// отправить двойной щелчок левой кнопкой мыши в заданной точке
-	function send_double_click($x="",$y="",$scroll=true)
+	function send_double_click($x="-1",$y="-1",$scroll=true)
 	{
 		$params = array( "x" => $x , "y" => $y , "scroll" => $scroll  );
 		return $this->call_boolean(__FUNCTION__,$params);
 	}
    	// отправить нажатие на левую кнопку мыши
-   	function send_left_button_down($x="",$y="",$scroll=true)
+   	function send_left_button_down($x="-1",$y="-1",$scroll=true)
    	{
 		$params = array( "x" => $x , "y" => $y , "scroll" => $scroll  );
 		return $this->call_boolean(__FUNCTION__,$params);
    	}
    	// отправить отпускание левой кнопки мыши
-   	function send_left_button_up($x="",$y="",$scroll=true)
+   	function send_left_button_up($x="-1",$y="-1",$scroll=true)
    	{
 		$params = array( "x" => $x , "y" => $y , "scroll" => $scroll  );
 		return $this->call_boolean(__FUNCTION__,$params);
    	}
 
    	// отправить щелчок правой кнопки мыши в заданной точке
-   	function send_right_button_click($x="",$y="",$scroll=true)
+   	function send_right_button_click($x="-1",$y="-1",$scroll=true)
    	{
 		$params = array( "x" => $x , "y" => $y , "scroll" => $scroll  );
 		return $this->call_boolean(__FUNCTION__,$params);
    	}
    	// отправить нажатие на правую кнопку мыши
-   	function send_right_button_down($x="",$y="",$scroll=true)
+   	function send_right_button_down($x="-1",$y="-1",$scroll=true)
    	{
 		$params = array( "x" => $x , "y" => $y , "scroll" => $scroll  );
 		return $this->call_boolean(__FUNCTION__,$params);
    	}
    	// отправить отпускание правой кнопки мыши
-   	function send_right_button_up($x="",$y="",$scroll=true)
+   	function send_right_button_up($x="-1",$y="-1",$scroll=true)
    	{
 		$params = array( "x" => $x , "y" => $y , "scroll" => $scroll  );
 		return $this->call_boolean(__FUNCTION__,$params);
@@ -213,10 +219,10 @@ class XHEMouse extends XHEBaseObject
 				$xc+=$sc_x;
 				$yc+=$sc_y;
 			}
-			$StepX=($x-$xc-0.0001)/$time/50;
-			$StepY=($y-$yc-0.0001)/$time/50;
+			$StepX=($x-$xc-0.0001)/$time/30;
+			$StepY=($y-$yc-0.0001)/$time/30;
 			$prevRandX=0;$prevRandY=0;
-			for ($i=0;$i<50*$time-1;$i++)
+			for ($i=0;$i<30*$time-1;$i++)
 			{
 				$xc+=$StepX-$prevRandX;
 				$yc+=$StepY-$prevRandY;
@@ -245,7 +251,13 @@ class XHEMouse extends XHEBaseObject
    	// отправить касание пальцев
    	function send_touch($id,$touch_type,$x,$y,$radiusX=0,$radiusY=0,$rotationAngle=0,$pressure=0,$modiefiers=0,$pointerType=0)
    	{
-		$params = array( "x" => $x , "y" => $y , "id" => $id , "touch_type" => $touch_type , "radiusX" => $radiusX, "radiusY" => $radiusY, "rotationAngle" => $rotationAngle, "pressure" => $pressure, "modiefiers" => $modiefiers, "pointerType" => $pointerType);
+		$params = array( "x" => $x , "y" => $y ,"id" => $id , "touch_type" => $touch_type , "radiusX" => $radiusX, "radiusY" => $radiusY, "rotationAngle" => $rotationAngle, "pressure" => $pressure, "modiefiers" => $modiefiers, "pointerType" => $pointerType);
+		return $this->call_boolean(__FUNCTION__,$params);
+   	}
+   	// отправить касание пальцев по траектории
+   	function send_touch_to($x0,$y0,$x,$y,$type_,$time_)
+   	{
+		$params = array( "x0" => $x0 , "y0" => $y0 , "x" => $x , "y" => $y , "type_" => $type_, "time_" => $time_);
 		return $this->call_boolean(__FUNCTION__,$params);
    	}
 

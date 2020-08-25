@@ -139,9 +139,9 @@ class XHEWindowsShell extends XHEBaseObject
 	////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	// начать запись видео части экрана
-	function start_video_record($path,$fps=10,$quality=70,$x=-1,$y=-1,$width=-1,$height=-1)
+	function start_video_record($path,$fps=10,$quality=70,$x=-1,$y=-1,$width=-1,$height=-1,$as_gray=false)
 	{
-		$params = array( "path" => $path, "fps" => $fps, "quality" => $quality, "x" => $x, "y" => $y, "width" => $width, "height" => $height );
+		$params = array( "path" => $path, "fps" => $fps, "quality" => $quality, "x" => $x, "y" => $y, "width" => $width, "height" => $height , "as_gray" => $as_gray);
 		return $this->call_boolean(__FUNCTION__,$params);
 	}
 	// остановить запись видео части экрана

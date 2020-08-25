@@ -1,8 +1,8 @@
 <?php
-///////////////////////////////////////////// Общее для всех DOM ////////////////////////////////////////////
+///////////////////////////////////////////// пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅ DOM ////////////////////////////////////////////
 class XHEBaseDOMVisual extends XHEBaseDOM
 {     
-	////////////////////////////////////// СЕРВИСНЫЕ ФУНКЦИИ ///////////////////////////////////////////
+	////////////////////////////////////// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ ///////////////////////////////////////////
 	// server initialization
 	function __construct($server,$password="")
 	{    
@@ -11,92 +11,149 @@ class XHEBaseDOMVisual extends XHEBaseDOM
 	}
 	/////////////////////////////////////////////////////////////////////////////////////////////////////
 
+	// check and wait element exist by number
+	function wait_element_exist_by_number($number,$frame=-1)
+	{
+		$this->z_wait_element_exist_by_number($number,$frame);
+	}
+	// check and wait element exist by name
+	function wait_element_exist_by_name($name,$frame=-1)
+	{
+		$this->z_wait_element_exist_by_name($name,$frame);
+	}
+	// check and wait element exist by id
+	function wait_element_exist_by_id($id,$exactly,$frame=-1)
+	{
+		$this->z_wait_element_exist_by_id($id,$exactly,$frame);
+	}
+	// check and wait element exist by inner text
+	function wait_element_exist_by_inner_text($inner_text,$exactly,$frame=-1)
+	{
+		$this->z_wait_element_exist_by_inner_text($inner_text,$exactly,$frame);
+	}
+	// check and wait element exist by inner html
+	function wait_element_exist_by_inner_html($inner_html,$exactly,$frame=-1)
+	{
+		$this->z_wait_element_exist_by_inner_html($inner_html,$exactly,$frame);
+	}
+	// check and wait element exist by outer text
+	function wait_element_exist_by_outer_text($outer_text,$exactly,$frame=-1)
+	{
+		$this->z_wait_element_exist_by_outer_text($outer_text,$exactly,$frame);
+	}
+	// check and wait element exist by outer html
+	function wait_element_exist_by_outer_html($outer_html,$exactly,$frame=-1)
+	{
+		$this->z_wait_element_exist_by_outer_html($outer_html,$exactly,$frame);
+	}
+	// check and wait element exist by attribute
+	function wait_element_exist_by_attribute($attr_name,$attr_value,$exactly,$frame=-1)
+	{
+		$this->z_wait_element_exist_by_attribute($attr_name,$attr_value,$exactly,$frame);
+	}
+	// check and wait element exist by xpath
+	function wait_element_exist_by_xpath($xpath)
+	{
+		$this->z_wait_element_exist_by_xpath($xpath);
+	}
+	// check and wait element exist by attribute in form by name
+	function wait_element_exist_by_attribute_by_form_name($attr_name,$attr_value,$exactly,$form_name,$frame=-1)
+	{
+		$this->z_wait_element_exist_by_attribute_by_form_name($attr_name,$attr_value,$exactly,$form_name,$frame);
+	}
+	// check and wait element exist by attribute in form by number
+	function wait_element_exist_by_attribute_by_form_number($attr_name,$attr_value,$exactly,$form_number,$frame=-1)
+	{
+		$this->z_wait_element_exist_by_attribute_by_form_number($attr_name,$attr_value,$exactly,$form_number,$frame);
+	}
+
+
         /////////////////////////////////////////////////////////////////////////////////////////////////////
 
-	// нажать, используя номер
+	// пїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
 	function click_by_number($number,$frame=-1,$wait_browser=true)
 	{
 		return $this->z_click_by_number($number,$frame,$wait_browser);
 	}
-        // нажать, используя имя
+        // пїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ
 	function click_by_name($name,$frame=-1,$wait_browser=true)
 	{
 		return $this->z_click_by_name($name,$frame,$wait_browser);
 	}
-   	// нажать, используя id
+   	// пїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ id
 	function click_by_id($id,$exactly=true,$frame=-1,$wait_browser=true)
 	{
 		return $this->z_click_by_id($id,$exactly,$frame,$wait_browser);
 	}
-   	// нажать, используя value
+   	// пїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ value
 	function click_by_value($value,$exactly=true,$frame=-1,$wait_browser=true)
 	{
 		return $this->z_click_by_value($value,$exactly,$frame,$wait_browser);
 	}
-	// нажать, используя alt
+	// пїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ alt
 	function click_by_alt($alt,$exactly=true,$frame=-1,$wait_browser=true)
 	{
 		return $this->z_click_by_alt($alt,$exactly,$frame,$wait_browser);
 	}
-	// нажать, используя src
+	// пїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ src
 	function click_by_src($src,$exactly=true,$frame=-1,$wait_browser=true)
 	{
 		return $this->z_click_by_src($src,$exactly,$frame,$wait_browser);
 	}
-	// нажать, используя href
+	// пїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ href
 	function click_by_href($url,$exactly=true,$frame=-1,$wait_browser=true)
 	{
 		return $this->z_click_by_href($url,$exactly,$frame,$wait_browser);
 	}	
-	// нажать, используя внутренний текст
+	// пїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
 	function click_by_inner_text($text,$exactly=true,$frame=-1,$wait_browser=true)
 	{
 		return $this->z_click_by_inner_text($text,$exactly,$frame,$wait_browser);
 	}
-	// нажать, используя внутренний хтмл
+	// пїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ
 	function click_by_inner_html($inner_html,$exactly=true,$frame=-1,$wait_browser=true)
 	{
 		return $this->z_click_by_inner_html($inner_html,$exactly,$frame,$wait_browser);
 	}
-	// нажать, используя значение атрибута
+	// пїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 	function click_by_attribute($attr_name,$attr_value,$exactly=true,$frame=-1,$wait_browser=true)
 	{
 		return $this->z_click_by_attribute($attr_name,$attr_value,$exactly,$frame,$wait_browser);
 	}	
 
-        // нажать, используя номер, в форме с заданным номером
+        // пїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ, пїЅ пїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 	function click_by_number_by_form_number($number,$form_number,$frame=-1,$wait_browser=true)
 	{
 		return $this->z_click_by_number_by_form_number($number,$form_number,$frame,$wait_browser);
 	}
-        // нажать, используя имя, в форме с заданным номером
+        // пїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ, пїЅ пїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 	function click_by_name_by_form_number($name,$form_number,$frame=-1,$wait_browser=true)
 	{
 		return $this->z_click_by_name_by_form_number($name,$form_number,$frame,$wait_browser);
 	}
-        // нажать, используя значение аттрибута, в форме с заданным номером
+        // пїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅ пїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 	function click_by_attribute_by_form_number($attr_name,$attr_value,$exactly,$form_number,$frame=-1,$wait_browser=true)
 	{
 		return $this->z_click_by_attribute_by_form_number($attr_name,$attr_value,$exactly,$form_number,$frame,$wait_browser);
 	}
 
-        // нажать, используя номер, в форме с заданным именем
+        // пїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ, пїЅ пїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
 	function click_by_number_by_form_name($number,$form_name,$frame=-1,$wait_browser=true)
 	{
 		return $this->z_click_by_number_by_form_name($number,$form_name,$frame,$wait_browser);
 	}
-        // нажать, используя имя, в форме с заданным именем
+        // пїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ, пїЅ пїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
 	function click_by_name_by_form_name($name,$form_name,$frame=-1,$wait_browser=true)
 	{
 		return $this->z_click_by_name_by_form_name($name,$form_name,$frame,$wait_browser);
 	}
-        // нажать, используя значение аттрибута, в форме с заданным именем
+        // пїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅ пїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
 	function click_by_attribute_by_form_name($attr_name,$attr_value,$exactly,$form_name,$frame=-1,$wait_browser=true)
 	{
 		return $this->z_click_by_attribute_by_form_name($attr_name,$attr_value,$exactly,$form_name,$frame,$wait_browser);
 	}
 
-        // нажать случайный элемент
+        // пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 	function click_random($frame=-1,$wait_browser=true)
 	{
 		return $this->z_click_random($frame,$wait_browser);
@@ -104,37 +161,37 @@ class XHEBaseDOMVisual extends XHEBaseDOM
 
 	/////////////////////////////////////////////////////////////////////////////////////////////////////
 
-	// послать событие по номеру
+	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
 	function send_event_by_number($number,$event,$frame=-1,$wait_browser=true)
 	{
 		return $this->z_send_event_by_number($number,$event,$frame,$wait_browser);
 	}
-	// послать событие по имени
+	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
 	function send_event_by_name($name,$event,$frame=-1,$wait_browser=true)
 	{
 		return $this->z_send_event_by_name($name,$event,$frame,$wait_browser);
 	}
-	// послать событие по id
+	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ id
 	function send_event_by_id($id,$exactly,$event,$frame=-1,$wait_browser=true)
 	{
 		return $this->z_send_event_by_id($id,$exactly,$event,$frame,$wait_browser);
 	}
-	// послать событие по урлу
+	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅ
 	function send_event_by_href($url,$exactly,$event,$frame=-1,$wait_browser=true)
 	{
 		return $this->z_send_event_by_href($url,$exactly,$event,$frame,$wait_browser);
 	}
-	// послать событие по внутреннему тексту
+	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
 	function send_event_by_inner_text($text,$exactly,$event,$frame=-1,$wait_browser=true)
 	{
 		return $this->z_send_event_by_inner_text($text,$exactly,$event,$frame,$wait_browser);
 	}
-	// послать событие по внутреннему хтмл
+	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ
 	function send_event_by_inner_html($html,$exactly,$event,$frame=-1,$wait_browser=true)
 	{
 		return $this->z_send_event_by_inner_html($html,$exactly,$event,$frame,$wait_browser);
 	}
-	// послать событие по атрибуту
+	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 	function send_event_by_attribute($atr_name,$atr_value,$exactly,$event,$frame=-1,$wait_browser=true)
 	{
 		return $this->z_send_event_by_attribute($atr_name,$atr_value,$exactly,$event,$frame,$wait_browser);
@@ -142,32 +199,32 @@ class XHEBaseDOMVisual extends XHEBaseDOM
 
 	/////////////////////////////////////////////////////////////////////////////////////////////////////
 
-	// установить фокус, используя номер
+	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
 	function set_focus_by_number($number,$frame=-1)
 	{
 		return $this->z_set_focus_by_number($number,$frame);
 	}
-   	// установить фокус, используя имя
+   	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ
 	function set_focus_by_name($name,$frame=-1)
 	{
 		return $this->z_set_focus_by_name($name,$frame);
 	}
-   	// установить фокус, используя href
+   	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ href
 	function set_focus_by_href($href,$exactly=true,$frame=-1)
 	{
 		return $this->z_set_focus_by_href($href,$exactly,$frame);
 	}
-   	// установить фокус, используя внутренний текст
+   	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
 	function set_focus_by_inner_text($inner_text,$exactly=true,$frame=-1)
 	{
 		return $this->z_set_focus_by_inner_text($inner_text,$exactly,$frame);
 	}
-   	// установить фокус, используя внутренний хтмл
+   	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ
 	function set_focus_by_inner_html($inner_html,$exactly=true,$frame=-1)
 	{
 		return $this->z_set_focus_by_inner_html($inner_html,$exactly,$frame);
 	}
-   	// установить фокус, используя значение аттрибута
+   	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 	function set_focus_by_attribute($attr_name,$attr_value,$exactly=true,$frame=-1)
 	{
 		return $this->z_set_focus_by_attribute($attr_name,$attr_value,$exactly,$frame);
@@ -175,49 +232,49 @@ class XHEBaseDOMVisual extends XHEBaseDOM
 
 	/////////////////////////////////////////////////////////////////////////////////////////////////////
 
-        // задать значение элементу по его номеру
+        // пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
         function set_value_by_number($number,$value,$frame=-1)
         {
 		return $this->z_set_value_by_number($number,$value,$frame);
         }
-        // задать значение элементу по его имени
+        // пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
         function set_value_by_name($name,$value,$frame=-1)
         {
 		return $this->z_set_value_by_name($name,$value,$frame);
         }
-        // задать значение элементу по его аттрибуту
+        // пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         function set_value_by_attribute($attr_name,$attr_value,$exactly,$value,$frame=-1)
         {
 		return $this->z_set_value_by_attribute($attr_name,$attr_value,$exactly,$value,$frame);
         }
 
-        // задать значение элементу по номеру, в форме с заданным номером
+        // пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ, пїЅ пїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         function set_value_by_number_by_form_number($number,$value,$form_number,$frame=-1)
         {
 		return $this->z_set_value_by_number_by_form_number($number,$value,$form_number,$frame);
         }
-        // задать значение элементу по имени, в форме с заданным номером
+        // пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ, пїЅ пїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         function set_value_by_name_by_form_number($name,$value,$form_number,$frame=-1)
         {
 		return $this->z_set_value_by_name_by_form_number($name,$value,$form_number,$frame);
         }
-        // задать значение элементу по значению аттрибута, в форме с заданным номером
+        // пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅ пїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         function set_value_by_attribute_by_form_number($attr_name,$attr_value,$exactly,$value,$form_number,$frame=-1)
         {
 		return $this->z_set_value_by_attribute_by_form_number($attr_name,$attr_value,$exactly,$value,$form_number,$frame);
         }
 
-        // задать значение элементу по номеру, в форме с заданным именем
+        // пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ, пїЅ пїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
         function set_value_by_number_by_form_name($number,$value,$form_name,$frame=-1)
         {
 		return $this->z_set_value_by_number_by_form_name($number,$value,$form_name,$frame);
         }
-        // задать значение элементу по имени, в форме с заданным именем
+        // пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ, пїЅ пїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
         function set_value_by_name_by_form_name($name,$value,$form_name,$frame=-1)
         {
 		return $this->z_set_value_by_name_by_form_name($name,$value,$form_name,$frame);
         }
-        // задать значение элементу по значению аттрибута, в форме с заданным именем
+        // пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅ пїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
         function set_value_by_attribute_by_form_name($attr_name,$attr_value,$exactly,$value,$form_name,$frame=-1)
         {
 		return $this->z_set_value_by_attribute_by_form_name($attr_name,$attr_value,$exactly,$value,$form_name,$frame);
@@ -225,36 +282,36 @@ class XHEBaseDOMVisual extends XHEBaseDOM
 
 	/////////////////////////////////////////////////////////////////////////////////////////////////////
 
-	// установить внутренний текст, используя номер
+	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
 	function set_inner_text_by_number($number,$text,$frame=-1)
 	{
 		 return $this->z_set_inner_text_by_number($number,$text,$frame);
 	}	
-        // установить внутренний текст, используя имя
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ
 	function set_inner_text_by_name($name,$text,$frame=-1)
 	{
 	         return $this->z_set_inner_text_by_name($name,$text,$frame);
 	}
-	// установить внутренний текст, используя значение аттрибута
+	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 	function set_inner_text_by_attribute($attr_name,$attr_value,$exactly=true,$text,$frame=-1)
 	{
 		if ($text===false || $text===true )
-	        	return $this->z_set_inner_text_by_attribute($attr_name,$attr_value,$text,$exactly,$frame); // был прощелк с порядком параметров - костыль
+	        	return $this->z_set_inner_text_by_attribute($attr_name,$attr_value,$text,$exactly,$frame); // пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ - пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 		else
 	        	return $this->z_set_inner_text_by_attribute($attr_name,$attr_value,$exactly,$text,$frame);
 	}
 
-	// установить внутренний html, используя номер
+	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ html, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
 	function set_inner_html_by_number($number,$html,$frame=-1)
 	{
 		return $this->z_set_inner_html_by_number($number,$html,$frame);
 	}	
-        // установить внутренний html, используя имя
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ html, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ
 	function set_inner_html_by_name($name,$html,$frame=-1)
 	{
 		return $this->z_set_inner_html_by_name($name,$html,$frame);
 	}
-	// установить внутренний html, используя значение аттрибута
+	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ html, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 	function set_inner_html_by_attribute($attr_name,$attr_value,$html,$exactly=true,$frame=-1)
 	{
 		return $this->z_set_inner_html_by_attribute($attr_name,$attr_value,$html,$exactly,$frame);
@@ -262,79 +319,79 @@ class XHEBaseDOMVisual extends XHEBaseDOM
 
 	/////////////////////////////////////////////////////////////////////////////////////////////////////
 
-        // добавить атрибут, используя номер
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
 	function add_attribute_by_number($number,$name_attr,$value_attr,$frame=-1)
 	{
                	return $this->z_add_attribute_by_number($number,$name_attr,$value_attr,$frame);
 	}
-	// добавить атрибут, используя имя
+	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ
 	function add_attribute_by_name($name,$name_attr,$value_attr,$frame=-1)
 	{
                	return $this->z_add_attribute_by_name($name,$name_attr,$value_attr,$frame);
 	}
-	// добавить аттрибут, используя внутренний текст
+	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
 	function add_attribute_by_inner_text($inner_text,$exactly,$name_atr,$value_atr,$frame=-1)
 	{
 		return $this->z_add_attribute_by_inner_text($inner_text,$exactly,$name_atr,$value_atr,$frame);
 	}    
-	// добавить аттрибут, используя внутренний html
+	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ html
 	function add_attribute_by_inner_html($inner_html,$exactly,$name_atr,$value_atr,$frame=-1)
 	{
 		return $this->z_add_attribute_by_inner_html($inner_html,$exactly,$name_atr,$value_atr,$frame);
 	}    
-	// добавить аттрибут, используя значение аттрибута
+	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 	function add_attribute_by_attribute($atr_name,$atr_value,$exactly,$name_atr,$value_atr,$frame=-1)
 	{
 		return $this->z_add_attribute_by_attribute($atr_name,$atr_value,$exactly,$name_atr,$value_atr,$frame);
 	}    
 
-	//  задать значение аттрибута, используя номер
+	//  пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
         function set_attribute_by_number($number,$name_atr,$value_atr,$frame=-1)
         {
 		return $this->z_set_attribute_by_number($number,$name_atr,$value_atr,$frame);
         }
-	// задать значение аттрибута, используя имя
+	// пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ
         function set_attribute_by_name($name,$name_atr,$value_atr,$frame=-1)
         {
 		return $this->z_set_attribute_by_name($name,$name_atr,$value_atr,$frame);
         }
-	// задать значение аттрибута, используя внутренний текст
+	// пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
         function set_attribute_by_inner_text($inner_text,$exactly,$name_atr,$value_atr,$frame=-1)
         {
 		return $this->z_set_attribute_by_inner_text($inner_text,$exactly,$name_atr,$value_atr,$frame);
         }
-	// задать значение аттрибута, используя внутренний html
+	// пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ html
         function set_attribute_by_inner_html($inner_html,$exactly,$name_atr,$value_atr,$frame=-1)
         {
 		return $this->z_set_attribute_by_inner_html($inner_html,$exactly,$name_atr,$value_atr,$frame);
         }
-	// задать значение аттрибута, используя значение аттрибута
+	// пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         function set_attribute_by_attribute($atr_name,$atr_value,$exactly,$name_atr,$value_atr,$frame=-1)
         {
 		return $this->z_set_attribute_by_attribute($atr_name,$atr_value,$exactly,$name_atr,$value_atr,$frame);
         }
 
-	// удалить атрибут, используя номер
+	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
 	function remove_attribute_by_number($number,$name_atr,$frame=-1)
 	{
 		return $this->z_remove_attribute_by_number($number,$name_atr,$frame);
 	}
-	// удалить атрибут, используя имя
+	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ
 	function remove_attribute_by_name($name,$name_atr,$frame=-1)
 	{
 		return $this->z_remove_attribute_by_name($name,$name_atr,$frame);
 	}
-	// удалить аттрибут, используя внутренний текст
+	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
 	function remove_attribute_by_inner_text($inner_text,$exactly,$name_atr,$frame=-1)
 	{
 		return $this->z_remove_attribute_by_inner_text($inner_text,$exactly,$name_atr,$frame);
 	}
-	// удалить аттрибут, используя внутренний html
+	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ html
 	function remove_attribute_by_inner_html($inner_html,$exactly,$name_atr,$frame=-1)
 	{
 		return $this->z_remove_attribute_by_inner_html($inner_html,$exactly,$name_atr,$frame);
 	}
-	// удалить аттрибут, используя значение аттрибута
+	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 	function remove_attribute_by_attribute($atr_name,$atr_value,$exactly,$name_atr,$frame=-1)
 	{
 		return $this->z_remove_attribute_by_attribute($atr_name,$atr_value,$exactly,$name_atr,$frame);
@@ -342,22 +399,22 @@ class XHEBaseDOMVisual extends XHEBaseDOM
 
 	/////////////////////////////////////////////////////////////////////////////////////////////////////
 
-	// скриншот, используя номер
+	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
 	function screenshot_by_number($file_path,$number,$frame=-1,$as_gray=false)
 	{
 		return $this->z_screenshot_by_number($file_path,$number,$frame,$as_gray);
 	}
-  	// скриншот, используя имя
+  	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ
 	function screenshot_by_name($file_path,$name,$frame=-1,$as_gray=false)
 	{
 		return $this->z_screenshot_by_name($file_path,$name,$frame,$as_gray);
 	}
-    	// скриншот, используя src
+    	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ src
 	function screenshot_by_src($file_path,$src,$exactly=true,$frame=-1,$as_gray=false)
 	{
 		return $this->z_screenshot_by_src($file_path,$src,$exactly,$frame,$as_gray);
 	}
-    	// скриншот, используя значение аттрибута
+    	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 	function screenshot_by_attribute($file_path,$atr_name,$atr_value,$exactly=true,$frame=-1,$as_gray=false)
 	{
 		return $this->z_screenshot_by_attribute($file_path,$atr_name,$atr_value,$exactly,$frame,$as_gray);
@@ -365,63 +422,63 @@ class XHEBaseDOMVisual extends XHEBaseDOM
 
 	/////////////////////////////////////////////////////////////////////////////////////////////////////
 
-        // проверить, есть ли элемент с заданным номером
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         function is_exist_by_number($number,$frame=-1)
         {
 		return $this->z_is_exist_by_number($number,$frame);
         }
-        // проверить, есть ли элемент с заданным именем
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
         function is_exist_by_name($name,$frame=-1)
         {
 		return $this->z_is_exist_by_name($name,$frame);
         }
-        // проверить, есть ли элемент с заданным id
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ id
         function is_exist_by_id($id,$exactly=true,$frame=-1)
         {
 		return $this->z_is_exist_by_id($id,$exactly,$frame);
         }
-	// проверить, есть ли элемент с заданным href
+	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ href
 	function is_exist_by_href($href,$exactly=true,$frame=-1)
 	{
 		return $this->z_is_exist_by_href($href,$exactly,$frame);
 	}	
-	// проверить, есть ли элемент с заданным alt
+	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ alt
 	function is_exist_by_alt($alt,$exactly=true,$frame=-1)
 	{
 		return $this->z_is_exist_by_alt($alt,$exactly,$frame);
 	}	
-	// проверить, есть ли элемент с заданным src
+	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ src
 	function is_exist_by_src($src,$exactly=true,$frame=-1)
 	{
 		return $this->z_is_exist_by_src($src,$exactly,$frame);
 	}	
-	// проверить, есть ли элемент с заданным внутренним текстом 
+	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ 
 	function is_exist_by_inner_text($inner_text,$exactly=true,$frame=-1)
 	{
 		return $this->z_is_exist_by_inner_text($inner_text,$exactly,$frame);
 	}	
-	// проверить, есть ли элемент с заданным внутренним хтмл 
+	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ 
 	function is_exist_by_inner_html($inner_html,$exactly=true,$frame=-1)
 	{
 		return $this->z_is_exist_by_inner_html($inner_html,$exactly,$frame);
 	}	
-	// проверить есть ли элемент с заданным значением атрибута
+	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 	function is_exist_by_attribute($atr_name,$atr_value,$exactly=true,$frame=-1)
 	{
 		return $this->z_is_exist_by_attribute($atr_name,$atr_value,$exactly,$frame);
 	}	
-	// проверить есть ли элемент с заданным xpath
+	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ xpath
 	function is_exist_by_xpath($xpath)
 	{
 		return $this->z_is_exist_by_xpath($xpath);
 	}	
 
-	// проверить есть ли элемент с заданным значением атрибута в форме с заданным номером
+	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 	function is_exist_by_attribute_by_form_number($atr_name,$atr_value,$exactly,$form_number,$frame=-1)
 	{
 		return $this->z_is_exist_by_attribute_by_form_number($atr_name,$atr_value,$exactly,$form_number,$frame);
 	}	
-	// проверить есть ли элемент с заданным значением атрибута в форме с заданным именем
+	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
 	function is_exist_by_attribute_by_form_name($atr_name,$atr_value,$exactly,$form_name,$frame=-1)
 	{
 		return $this->z_is_exist_by_attribute_by_form_name($atr_name,$atr_value,$exactly,$form_name,$frame);
@@ -429,74 +486,74 @@ class XHEBaseDOMVisual extends XHEBaseDOM
 
 	/////////////////////////////////////////////////////////////////////////////////////////////////////
 
-   	// получить номер по имени
+   	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
 	function get_number_by_name($name,$frame=-1)
 	{
 		return $this->z_get_number_by_name($name,$frame);
 	}
-   	// получить номер по id
+   	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ id
 	function get_number_by_id($id,$frame=-1)
 	{
 		return $this->z_get_number_by_id($id,$frame);
 	}
-	// получить номер по src
+	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ src
 	function get_number_by_src($src,$exactly=true,$frame=-1)
 	{
 		return $this->z_get_number_by_src($src,$exactly,$frame);
 	}
-	// получить номер по href
+	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ href
 	function get_number_by_href($href,$exactly=true,$frame=-1)
 	{
 		return $this->z_get_number_by_href($href,$exactly,$frame);
 	}
-   	// получить номер по внутреннему тексту
+   	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
 	function get_number_by_inner_text($innertext,$exactly=true,$frame=-1)
 	{
 		return $this->z_get_number_by_inner_text($innertext,$exactly,$frame);
 	}
-   	// получить номер по внутреннему html
+   	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ html
 	function get_number_by_inner_html($innerhtml,$exactly=true,$frame=-1)
 	{
 		return $this->z_get_number_by_inner_html($innerhtml,$exactly,$frame);
 	}
-        // получить номер по значению атрибута
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         function get_number_by_attribute($atr_name,$atr_value,$exactly=true,$frame=-1)
         {
 		return $this->z_get_number_by_attribute($atr_name,$atr_value,$exactly,$frame);
         }
 
-	// получить имя по номеру
+	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
 	function get_name_by_number($number,$frame=-1)
 	{
 		return $this->z_get_name_by_number($number,$frame);
 	}
 
-        // получить значение атрибута по номеру
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
         function get_attribute_by_number($number,$name_atr,$frame=-1)
         {
 		return $this->z_get_attribute_by_number($number,$name_atr,$frame);
         }
-        // получить значение атрибута по имени
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
         function get_attribute_by_name($name,$name_atr,$frame=-1)
         {
 		return $this->z_get_attribute_by_name($name,$name_atr,$frame);
         }
-        // получить значение атрибута по src
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ src
         function get_attribute_by_src($src,$exactly,$name_atr,$frame=-1)
         {
                return $this->z_get_attribute_by_src($src,$exactly,$name_atr,$frame);
         }
-        // получить значение атрибута по внутреннему тексту
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
         function get_attribute_by_inner_text($inner_text,$exactly,$name_atr,$frame=-1)
         {
                return $this->z_get_attribute_by_inner_text($inner_text,$exactly,$name_atr,$frame);
         }
-        // получить значение атрибута по внутреннему html
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ html
         function get_attribute_by_inner_html($inner_html,$exactly,$name_atr,$frame=-1)
         {
                return $this->z_get_attribute_by_inner_html($inner_html,$exactly,$name_atr,$frame);
         }
-        // получить значение атрибута по атрибуту
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         function get_attribute_by_attribute($atr_name,$atr_value,$exactly,$name_atr,$frame=-1)
         {
 	       return $this->z_get_attribute_by_attribute($atr_name,$atr_value,$exactly,$name_atr,$frame); 
@@ -504,55 +561,55 @@ class XHEBaseDOMVisual extends XHEBaseDOM
 
 	/////////////////////////////////////////////////////////////////////////////////////////////////////
 
-        // получить value по номеру
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ value пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
 	function get_value_by_number($number,$frame=-1)
 	{
 		return $this->z_get_value_by_number($number,$frame);
 	}	
-        // получить value по имени
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ value пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
         function get_value_by_name($name,$frame=-1)
         {
 		return $this->z_get_value_by_name($name,$frame);
         }
-        // получить value по атрибуту
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ value пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         function get_value_by_attribute($atr_name,$atr_value,$exactly=true,$frame=-1)
         {		
 		return $this->z_get_value_by_attribute($atr_name,$atr_value,$exactly,$frame);
         }
 
-   	// получить src по номеру
+   	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ src пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
 	function get_src_by_number($number,$frame=-1)
 	{
 		return $this->z_get_src_by_number($number,$frame);
 	}
-    	// получить src по имени
+    	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ src пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
 	function get_src_by_name($name,$frame=-1)
 	{
 		return $this->z_get_src_by_name($name,$frame);
 	}
 
-	// получить alt по номеру
+	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ alt пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
 	function get_alt_by_number($number,$frame=-1)
 	{
 		return $this->z_get_alt_by_number($number,$frame);
 	}
-	// получить alt по имени
+	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ alt пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
 	function get_alt_by_name($name,$frame=-1)
 	{
 		return $this->z_get_alt_by_name($name,$frame);
 	}
 
-	// получить href по номеру
+	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ href пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
 	function get_href_by_number($number,$frame=-1)
 	{
 		return $this->z_get_href_by_number($number,$frame);
 	}
-        // получить href по имени
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ href пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
 	function get_href_by_name($name,$frame=-1)
 	{
 		return $this->z_get_href_by_name($name,$frame);
 	}
-        // получить href по внутреннему тексту
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ href пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
 	function get_href_by_inner_text($inner_text,$exactly=true,$frame=-1)
 	{
 		return $this->z_get_href_by_inner_text($inner_text,$exactly,$frame);
@@ -560,48 +617,48 @@ class XHEBaseDOMVisual extends XHEBaseDOM
 
 	/////////////////////////////////////////////////////////////////////////////////////////////////////
 
-	// получить внутренний текст по номеру
+	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
 	function get_inner_text_by_number($number,$frame=-1)
 	{
 		return $this->z_get_inner_text_by_number($number,$frame);
 	}
-	// получить внутренний текст по имени
+	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
 	function get_inner_text_by_name($name,$frame=-1)
 	{
 		return $this->z_get_inner_text_by_name($name,$frame);
 	}
-        // получить внутренний текст по id
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ id
         function get_inner_text_by_id($id,$frame=-1)
         {
 		return $this->z_get_inner_text_by_id($id,$frame);
         }
-	// получить внутренний текст по href
+	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ href
 	function get_inner_text_by_href($href,$exactly=true,$frame=-1)
 	{
 		return $this->z_get_inner_text_by_href($href,$exactly,$frame);
 	}
-	// получить внутренний текст по значению аттрибута
+	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 	function get_inner_text_by_attribute($attr_name,$attr_value,$exactly=true,$frame=-1)
 	{
 		return $this->z_get_inner_text_by_attribute($attr_name,$attr_value,$exactly,$frame);
 	}
 
-        // получить внутренний html по номеру
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ html пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
         function get_inner_html_by_number($number,$frame=-1)
         {
 		return $this->z_get_inner_html_by_number($number,$frame);
         }
-        // получить внутренний html по имени
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ html пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
         function get_inner_html_by_name($name,$frame=-1)
         {
                 return $this->z_get_inner_html_by_name($name,$frame);
         }
-        // получить внутренний html по id
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ html пїЅпїЅ id
         function get_inner_html_by_id($id,$frame=-1)
         {
 		return $this->z_get_inner_html_by_id($id,$frame);
         }
-        // получить внутренний html по значению аттрибута
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ html пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 	function get_inner_html_by_attribute($attr_name,$attr_value,$exactly=true,$frame=-1)
         {
 		return $this->z_get_inner_html_by_attribute($attr_name,$attr_value,$exactly,$frame);
@@ -609,81 +666,81 @@ class XHEBaseDOMVisual extends XHEBaseDOM
 
 	/////////////////////////////////////////////////////////////////////////////////////////////////////
 
-        // проверить доступность элемента по номеру
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
         function is_disabled_by_number($number,$frame=-1)
         {
                return $this->z_is_disabled_by_number($number,$frame);
         }
-        // проверить доступность элемента по имени
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
         function is_disabled_by_name($name,$frame=-1)
         {
                return $this->z_is_disabled_by_name($name,$frame); 
         }
 
-        // получить все аттрибуты элемента по его номеру
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
         function get_all_attributes_by_number($number,$frame=-1)
         {
                return $this->z_get_all_attributes_by_number($number,$frame);
         }
-        // получить все аттрибуты элемента по его имени
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
         function get_all_attributes_by_name($name,$frame=-1)
         {
                return $this->z_get_all_attributes_by_name($name,$frame);
         }
-	// получить все аттрибуты элемента по src
+	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ src
         function get_all_attributes_by_src($src,$exactly="true",$frame=-1)
         {
                return $this->z_get_all_attributes_by_src($src,$exactly,$frame);
         }
 
-        // получить все значения атрибутов элемента по его номеру
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
         function get_all_attributes_values_by_number($number,$frame=-1)
         {
 		return $this->z_get_all_attributes_values_by_number($number,$frame);
         }
-        // получить все значения атрибутов элемента по его имени
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
         function get_all_attributes_values_by_name($name,$frame=-1)
         {
 		return $this->z_get_all_attributes_values_by_name($name,$frame);
         }
-        // получить все значения атрибутов элемента по src
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ src
         function get_all_attributes_values_by_src($src,$exactly=true,$frame=-1)
         {
 		return $this->z_get_all_attributes_values_by_src($src,$exactly,$frame);
         }
 
-        // получить все события элемента по его номеру
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
         function get_all_events_by_number($number,$frame=-1)
         {
 		return $this->z_get_all_events_by_number($number,$frame);
         }
-        // получить все события элемента по его имени
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
         function get_all_events_by_name($name,$frame=-1)
         {
 		return $this->z_get_all_events_by_name($name,$frame);
         }
-	// получить все события элемента по src
+	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ src
         function get_all_events_by_src($src,$exactly=true,$frame=-1)
         {
 		return $this->z_get_all_events_by_src($src,$exactly,$frame);
         }
 
-   	// получить номера дочерних элементов по его номеру
+   	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
 	function get_numbers_child_by_number($number,$element_type="",$frame=-1,$include_subchildren=false)
 	{
 		return $this->z_get_numbers_child_by_number($number,$element_type,$frame,$include_subchildren);
 	}
-   	// получить номера дочерних элементов по его имени
+   	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
 	function get_numbers_child_by_name($name,$element_type="",$frame=-1,$include_subchildren=false)
 	{
 		return $this->z_get_numbers_child_by_name($name,$element_type,$frame,$include_subchildren);
 	}
-   	// получить номера дочерних элементов по его id
+   	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅ id
 	function get_numbers_child_by_id($id,$element_type="",$frame=-1,$include_subchildren=false)
 	{
 		return $this->z_get_numbers_child_by_id($id,$element_type,$frame,$include_subchildren);
 	}
-   	// получить номера дочерних элементов по значению его аттрибута
+   	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 	function get_numbers_child_by_attribute($attr_name,$attr_value,$exactly=true,$element_type="",$frame=-1,$include_subchildren=false)
 	{
 		return $this->z_get_numbers_child_by_attribute($attr_name,$attr_value,$exactly,$element_type,$frame,$include_subchildren);
@@ -691,63 +748,63 @@ class XHEBaseDOMVisual extends XHEBaseDOM
 
 	/////////////////////////////////////////////////////////////////////////////////////////////////////
 
-	// получить X левого верхнего угла элемента по номеру
+	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ X пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
 	function get_x_by_number($number,$frame=-1)
 	{
         	return $this->z_get_x_by_number($number,$frame);
 	}
-        // получить X левого верхнего угла элемента по имени
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ X пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
 	function get_x_by_name($name,$frame=-1)
 	{
 		return $this->z_get_x_by_name($name,$frame);
 	}
-	// получить X левого верхнего угла элемента по href
+	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ X пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ href
 	function get_x_by_href($href,$exactly=true,$frame=-1)
 	{
 		return $this->z_get_x_by_href($href,$exactly,$frame);
 	}	
-	// получить X левого верхнего угла элемента по внутрененму тексту
+	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ X пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
 	function get_x_by_inner_text($inner_text,$exactly=true,$frame=-1)
 	{
 		return $this->z_get_x_by_inner_text($inner_text,$exactly,$frame);
 	}
-        // получить X левого верхнего угла элемента по внутреннему html
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ X пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ html
         function get_x_by_inner_html($inner_html,$exactly=true,$frame=-1)
         {
 		return $this->z_get_x_by_inner_html($inner_html,$exactly,$frame);
         }
-	// получить X левого верхнего угла элемента по значению атрибута
+	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ X пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 	function get_x_by_attribute($attr_name,$attr_value,$exactly=true,$frame=-1)
 	{
 		return $this->z_get_x_by_attribute($attr_name,$attr_value,$exactly,$frame);
 	}
 
-	// получить Y левого верхнего угла элемента по номеру
+	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ Y пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
 	function get_y_by_number($number,$frame=-1)
 	{
         	return $this->z_get_y_by_number($number,$frame);
 	}
-        // получить Y левого верхнего угла элемента по имени
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ Y пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
 	function get_y_by_name($name,$frame=-1)
 	{
 		return $this->z_get_y_by_name($name,$frame);
 	}
-	// получить Y левого верхнего угла элемента по href
+	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ Y пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ href
 	function get_y_by_href($href,$exactly=true,$frame=-1)
 	{
 		return $this->z_get_y_by_href($href,$exactly,$frame);
 	}	
-	// получить Y левого верхнего угла элемента по внутрененму тексту
+	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ Y пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
 	function get_y_by_inner_text($inner_text,$exactly=true,$frame=-1)
 	{
 		return $this->z_get_y_by_inner_text($inner_text,$exactly,$frame);
 	}
-        // получить Y левого верхнего угла элемента по внутреннему html
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ Y пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ html
         function get_y_by_inner_html($inner_html,$exactly=true,$frame=-1)
         {
 		return $this->z_get_y_by_inner_html($inner_html,$exactly,$frame);
         }
-	// получить Y левого верхнего угла элемента по значению атрибута
+	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ Y пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 	function get_y_by_attribute($attr_name,$attr_value,$exactly=true,$frame=-1)
 	{
 		return $this->z_get_y_by_attribute($attr_name,$attr_value,$exactly,$frame);
@@ -755,53 +812,53 @@ class XHEBaseDOMVisual extends XHEBaseDOM
 
 	//////////////////////////////////// GET SIZES /////////////////////////////////////////
 
-	// получить ширину элемента по номеру
+	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
 	function get_width_by_number($number,$frame=-1)
 	{
 		return $this->z_get_width_by_number($number,$frame);
 	}
-        // получить ширину элемента по имени
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
         function get_width_by_name($name,$frame=-1)
         {
                 return $this->z_get_width_by_name($name,$frame);
         }
-        // получить ширину элемента по src
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ src
         function get_width_by_src($src,$exactly=true,$frame=-1)
         {
                 return $this->z_get_width_by_src($src,$exactly,$frame);
         }
-        // получить ширину элемента по href
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ href
         function get_width_by_href($href,$exactly=true,$frame=-1)
         {
                 return $this->z_get_width_by_href($href,$exactly,$frame);
         }
-        // получить ширину элемента по значению атрибута
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         function get_width_by_attribute($attr_name,$attr_value,$exactly=true,$frame=-1)
         {
                 return $this->z_get_width_by_attribute($attr_name,$attr_value,$exactly,$frame);
         }
 
-	// получить высоту элемента по номеру
+	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
 	function get_height_by_number($number,$frame=-1)
 	{
 		return $this->z_get_height_by_number($number,$frame);
 	}
-        // получить высоту элемента по имени
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
         function get_height_by_name($name,$frame=-1)
         {
                 return $this->z_get_height_by_name($name,$frame);
         }
-        // получить высоту элемента по src
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ src
         function get_height_by_src($src,$exactly=true,$frame=-1)
         {
                 return $this->z_get_height_by_src($src,$exactly,$frame);
         }
-        // получить высоту элемента по href
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ href
         function get_height_by_href($href,$exactly=true,$frame=-1)
         {
                 return $this->z_get_height_by_href($href,$exactly,$frame);
         }
-        // получить высоту элемента по значению атрибута
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         function get_height_by_attribute($attr_name,$attr_value,$exactly=true,$frame=-1)
         {
                 return $this->z_get_height_by_attribute($attr_name,$attr_value,$exactly,$frame);
@@ -809,27 +866,27 @@ class XHEBaseDOMVisual extends XHEBaseDOM
 
         /////////////////////////////////////////////////////////////////////////////////////////////////////
 
-        // эмуляция ввода с клавиатуры в элемент с заданным номером
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 	function send_keyboard_input_by_number($number,$string,$timeout=INPUT_TIME,$frame=-1)
 	{
 		return $this->z_send_keyboard_input_by_number($number,$string,$timeout,$frame);
 	}
-        // эмуляция ввода с клавиатуры в элемент с заданным именем
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
 	function send_keyboard_input_by_name($name,$string,$timeout=INPUT_TIME,$frame=-1)
 	{
 		return $this->z_send_keyboard_input_by_name($name,$string,$timeout,$frame);
 	}
-        // эмуляция ввода с клавиатуры в элемент по внутреннему тексту
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
 	function send_keyboard_input_by_inner_text($inner_text,$exactly,$string,$timeout=INPUT_TIME,$frame=-1)
 	{
 		return $this->z_send_keyboard_input_by_inner_text($inner_text,$exactly,$string,$timeout,$frame);
 	}
-        // эмуляция ввода с клавиатуры в элемент по внутреннему html
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ html
 	function send_keyboard_input_by_inner_html($inner_html,$exactly,$string,$timeout=INPUT_TIME,$frame=-1)
 	{
 		return $this->z_send_keyboard_input_by_inner_html($inner_html,$exactly,$string,$timeout,$frame);
 	}
-        // эмуляция ввода с клавиатуры в элемент по значению аттрибута
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 	function send_keyboard_input_by_attribute($attr_name,$attr_value,$exactly,$string,$timeout=INPUT_TIME,$frame=-1)
 	{
 		return $this->z_send_keyboard_input_by_attribute($attr_name,$attr_value,$exactly,$string,$timeout,$frame);
@@ -837,62 +894,62 @@ class XHEBaseDOMVisual extends XHEBaseDOM
 
 	/////////////////////////////////////////////////////////////////////////////////////////////////////
 
-	// получить число элементов на странице
+	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 	function get_count($frame=-1)
 	{
 		return $this->z_get_count($frame);
 	}
-	// получить число элементов на странице с заданным значением аттрибута
+	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 	function get_count_by_attribute($attr_name,$attr_value,$exactly,$frame=-1)
 	{
 		$params = array( "attr_name" => $attr_name , "attr_value" => $attr_value , "exactly" => $exactly , "frame" => $frame);
 		return $this->call_get(__FUNCTION__,$params);
 	}
 
-	// получить номера всех элементов с заданным внутренним текстом
+	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 	function get_all_numbers_by_inner_text($text,$exactly=false,$frame=-1)
 	{
 		return $this->z_get_all_numbers_by_inner_text($text,$exactly,$frame);
 	}	
-	// получить номера всех элементов с заданным внутренним хтмл
+	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ
 	function get_all_numbers_by_inner_html($html,$exactly=false,$frame=-1)
 	{
 		return $this->z_get_all_numbers_by_inner_html($html,$exactly,$frame);
 	}	
-	// получить номера всех элементов с заданным значением аттрибута
+	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 	function get_all_numbers_by_attribute($attr_name,$attr_value,$exactly=false,$frame=-1)
 	{
 		return $this->z_get_all_numbers_by_attribute($attr_name,$attr_value,$exactly,$frame);
 	}	
 
-	// получить все внутренние тексты всех элементов с заданным внутренним текстом
+	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 	function get_all_inner_texts($separator="<br>",$text_filter="",$frame=-1)
 	{
 		return $this->z_get_all_inner_texts($separator,$text_filter,$frame);
 	}	
-	// получить все внутренние тексты всех элементов с зададнным значением аттрибутов
+	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 	function get_all_inner_texts_by_attribute($attr_name,$attr_value,$exactly=false,$frame=-1)
 	{
 		return $this->z_get_all_inner_texts_by_attribute($attr_name,$attr_value,$exactly,$frame);
 	}	
 
-	// получить все внутренние html всех элементов с заданным внутренним текстом
+	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ html пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 	function get_all_inner_htmls_by_inner_text($text,$exactly=false,$frame=-1)
 	{
 		return $this->z_get_all_inner_htmls_by_inner_text($text,$exactly,$frame);
 	}	
-	// получить все внутренние html всех элементов с заданным значением аттрибута
+	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ html пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 	function get_all_inner_htmls_by_attribute($attr_name,$attr_value,$exactly=false,$frame=-1)
 	{
 		return $this->z_get_all_inner_htmls_by_attribute($attr_name,$attr_value,$exactly,$frame);
 	}	
 
-	// получить все значения аттрибута всех элементов с заданным внутренним текстом
+	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 	function get_all_attributes_by_inner_text($attr_name_need,$text,$exactly=false,$frame=-1)
 	{
 		return $this->z_get_all_attributes_by_inner_text($attr_name_need,$text,$exactly,$frame);
 	}	
-	// получить все значения аттрибута всех элементов по значению аттрибута
+	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 	function get_all_attributes_by_attribute($attr_name_need,$attr_name,$attr_value,$exactly=false,$frame=-1)
 	{
 		return $this->z_get_all_attributes_by_attribute($attr_name_need,$attr_name,$attr_value,$exactly,$frame);
@@ -900,7 +957,7 @@ class XHEBaseDOMVisual extends XHEBaseDOM
 
 	//////////////////////////////////////////////////////////////////////////////////////////////////////
 
-	// получить интерфейс объекта по номеру
+	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
 	function get_by_number($number,$frame=-1)
 	{
 		$this->wait_element_exist_by_number($number,$frame);
@@ -910,7 +967,7 @@ class XHEBaseDOMVisual extends XHEBaseDOM
 
 		return new XHEInterface($internal_number,$this->server,$this->password);
 	}	
-	// получить интерфейс объекта по имени
+	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
 	function get_by_name($name,$frame=-1)
 	{
 		$this->wait_element_exist_by_name($name,$frame);
@@ -920,7 +977,7 @@ class XHEBaseDOMVisual extends XHEBaseDOM
 
 		return new XHEInterface($internal_number,$this->server,$this->password);
 	}	
-	// получить интерфейс объекта по внутреннему тексту
+	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
 	function get_by_inner_text($inner_text,$exactly=true,$frame=-1)
 	{
 		$this->wait_element_exist_by_inner_text($inner_text,$exactly,$frame);
@@ -930,7 +987,7 @@ class XHEBaseDOMVisual extends XHEBaseDOM
 
 		return new XHEInterface($internal_number,$this->server,$this->password);
 	}	
-	// получить интерфейс объекта по внутреннему хтмл
+	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ
 	function get_by_inner_html($inner_html,$exactly=true,$frame=-1)
 	{
 		$this->wait_element_exist_by_inner_html($inner_html,$exactly,$frame);
@@ -940,7 +997,7 @@ class XHEBaseDOMVisual extends XHEBaseDOM
 
 		return new XHEInterface($internal_number,$this->server,$this->password);
 	}	
-	// получить интерфейс объекта по внешнему тексту
+	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
 	function get_by_outer_text($outer_text,$exactly=true,$frame=-1)
 	{
 		$this->wait_element_exist_by_outer_text($outer_text,$exactly,$frame);
@@ -950,7 +1007,7 @@ class XHEBaseDOMVisual extends XHEBaseDOM
 
 		return new XHEInterface($internal_number,$this->server,$this->password);
 	}	
-	// получить интерфейс объекта по внешнему хтмл
+	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ
 	function get_by_outer_html($outer_html,$exactly=true,$frame=-1)
 	{
 		$this->wait_element_exist_by_outer_html($outer_html,$exactly,$frame);
@@ -960,7 +1017,7 @@ class XHEBaseDOMVisual extends XHEBaseDOM
 
 		return new XHEInterface($internal_number,$this->server,$this->password);
 	}	
-	// получить интерфейс объекта по id
+	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ id
 	function get_by_id($id,$exactly=true,$frame=-1)
 	{
 		$this->wait_element_exist_by_attribute("id",$id,$exactly,$frame);
@@ -970,7 +1027,7 @@ class XHEBaseDOMVisual extends XHEBaseDOM
 
 		return new XHEInterface($internal_number,$this->server,$this->password);
 	}	
-	// получить интерфейс объекта по src
+	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ src
 	function get_by_src($src,$exactly=true,$frame=-1)
 	{
 		$this->wait_element_exist_by_attribute("src",$src,$exactly,$frame);
@@ -980,7 +1037,7 @@ class XHEBaseDOMVisual extends XHEBaseDOM
 
 		return new XHEInterface($internal_number,$this->server,$this->password);
 	}	
-	// получить интерфейс объекта по href
+	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ href
 	function get_by_href($href,$exactly=true,$frame=-1)
 	{
 		$this->wait_element_exist_by_attribute("href",$href,$exactly,$frame);
@@ -990,7 +1047,7 @@ class XHEBaseDOMVisual extends XHEBaseDOM
 
 		return new XHEInterface($internal_number,$this->server,$this->password);
 	}	
-	// получить интерфейс объекта по alt
+	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ alt
 	function get_by_alt($alt,$exactly=true,$frame=-1)
 	{
 		$this->wait_element_exist_by_attribute("alt",$alt,$exactly,$frame);
@@ -1000,7 +1057,7 @@ class XHEBaseDOMVisual extends XHEBaseDOM
 
 		return new XHEInterface($internal_number,$this->server,$this->password);
 	}	
-	// получить интерфейс объекта по value
+	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ value
 	function get_by_value($value,$exactly=true,$frame=-1)
 	{
 		$this->wait_element_exist_by_attribute("value",$value,$exactly,$frame);
@@ -1010,7 +1067,7 @@ class XHEBaseDOMVisual extends XHEBaseDOM
 
 		return new XHEInterface($internal_number,$this->server,$this->password);
 	}	
-	// получить интерфейс объекта по значению аттрибута
+	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 	function get_by_attribute($attr_name,$attr_value,$exactly=true,$frame=-1)
 	{
 		$this->wait_element_exist_by_attribute($attr_name,$attr_value,$exactly,$frame);
@@ -1020,7 +1077,7 @@ class XHEBaseDOMVisual extends XHEBaseDOM
 
 		return new XHEInterface($internal_number,$this->server,$this->password);
 	}	
-	// получить интерфейс объекта по значению свойств : name1;value1;exactly1; ... nameN;valueN;exactlyN;
+	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ : name1;value1;exactly1; ... nameN;valueN;exactlyN;
 	function get_by_properties($properties,$frame=-1)
 	{
 		//$this->wait_element_exist_by_attribute($attr_name,$attr_value,$exactly,$frame);
@@ -1030,7 +1087,7 @@ class XHEBaseDOMVisual extends XHEBaseDOM
 
 		return new XHEInterface($internal_number,$this->server,$this->password);
 	}	
-	// получить интерфейс объекта по xpath
+	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ xpath
 	function get_by_xpath($xpath)
 	{
 		$this->wait_element_exist_by_xpath($xpath);
@@ -1040,7 +1097,7 @@ class XHEBaseDOMVisual extends XHEBaseDOM
 
 		return new XHEInterface($internal_number,$this->server,$this->password);
 	}	
-        // получить все элементы
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         function get_all($frame=-1)
         {
 		$params = array( "frame" => $frame );
@@ -1049,7 +1106,7 @@ class XHEBaseDOMVisual extends XHEBaseDOM
 		return new XHEInterfaces($res,$this->server,$this->password);
         }
 
-        // получить все элементы c заданными номерами
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ c пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 	function get_all_by_number($numbers,$frame=-1)
 	{
 		$params = array( "numbers" => $numbers , "frame" => $frame);
@@ -1057,7 +1114,7 @@ class XHEBaseDOMVisual extends XHEBaseDOM
 
 		return new XHEInterfaces($res,$this->server,$this->password);
 	}	
-        // получить все элементы c заданным inner text
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ c пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ inner text
 	function get_all_by_inner_text($inner_text,$exactly=false,$frame=-1)
 	{
 		$params = array( "inner_text" => $inner_text , "exactly" => $exactly , "frame" => $frame);
@@ -1065,7 +1122,7 @@ class XHEBaseDOMVisual extends XHEBaseDOM
 
 		return new XHEInterfaces($res,$this->server,$this->password);
 	}	
-        // получить все элементы c заданным inner html
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ c пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ inner html
 	function get_all_by_inner_html($inner_html,$exactly=false,$frame=-1)
 	{
 		$params = array( "inner_html" => $inner_html , "exactly" => $exactly , "frame" => $frame);
@@ -1073,7 +1130,7 @@ class XHEBaseDOMVisual extends XHEBaseDOM
 
 		return new XHEInterfaces($res,$this->server,$this->password);
 	}	
-        // получить все элементы c заданным outer text
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ c пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ outer text
 	function get_all_by_outer_text($outer_text,$exactly=false,$frame=-1)
 	{
 		$params = array( "outer_text" => $outer_text , "exactly" => $exactly , "frame" => $frame);
@@ -1081,7 +1138,7 @@ class XHEBaseDOMVisual extends XHEBaseDOM
 
 		return new XHEInterfaces($res,$this->server,$this->password);
 	}	
-        // получить все элементы c заданным outer html
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ c пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ outer html
 	function get_all_by_outer_html($outer_html,$exactly=false,$frame=-1)
 	{
 		$params = array( "outer_html" => $outer_html , "exactly" => $exactly , "frame" => $frame);
@@ -1089,7 +1146,7 @@ class XHEBaseDOMVisual extends XHEBaseDOM
 
 		return new XHEInterfaces($res,$this->server,$this->password);
 	}	
-        // получить все элементы c заданным именем
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ c пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
 	function get_all_by_name($name,$exactly=false,$frame=-1)
 	{
 		$params = array( "name" => $name , "exactly" => $exactly , "frame" => $frame);
@@ -1097,7 +1154,7 @@ class XHEBaseDOMVisual extends XHEBaseDOM
 
 		return new XHEInterfaces($res,$this->server,$this->password);
 	}	
-        // получить все элементы c заданным id
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ c пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ id
 	function get_all_by_id($id,$exactly=false,$frame=-1)
 	{
 		$params = array( "id" => $id , "exactly" => $exactly , "frame" => $frame);
@@ -1105,7 +1162,7 @@ class XHEBaseDOMVisual extends XHEBaseDOM
 
 		return new XHEInterfaces($res,$this->server,$this->password);
 	}	
-        // получить все элементы c заданным src
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ c пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ src
 	function get_all_by_src($src,$exactly=false,$frame=-1)
 	{
 		$params = array( "src" => $src , "exactly" => $exactly , "frame" => $frame);
@@ -1113,7 +1170,7 @@ class XHEBaseDOMVisual extends XHEBaseDOM
 
 		return new XHEInterfaces($res,$this->server,$this->password);
 	}	
-        // получить все элементы c заданным href
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ c пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ href
 	function get_all_by_href($href,$exactly=false,$frame=-1)
 	{
 		$params = array( "href" => $href , "exactly" => $exactly , "frame" => $frame);
@@ -1121,7 +1178,7 @@ class XHEBaseDOMVisual extends XHEBaseDOM
 
 		return new XHEInterfaces($res,$this->server,$this->password);
 	}	
-        // получить все элементы c заданным alt
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ c пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ alt
 	function get_all_by_alt($alt,$exactly=false,$frame=-1)
 	{
 		$params = array( "alt" => $alt , "exactly" => $exactly , "frame" => $frame);
@@ -1129,7 +1186,7 @@ class XHEBaseDOMVisual extends XHEBaseDOM
 
 		return new XHEInterfaces($res,$this->server,$this->password);
 	}	
-        // получить все элементы c заданным value
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ c пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ value
         function get_all_by_value($value,$exactly=false,$frame=-1)
         {
 		$params = array( "value" => $value , "exactly" => $exactly , "frame" => $frame);
@@ -1137,7 +1194,7 @@ class XHEBaseDOMVisual extends XHEBaseDOM
 
 		return new XHEInterfaces($res,$this->server,$this->password);
         }
-        // получить все элементы c заданным значением аттрибута
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ c пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         function get_all_by_attribute($attr_name,$attr_value,$exactly=false,$frame=-1)
         {
 		$params = array( "attr_name" => $attr_name , "attr_value" => $attr_value , "exactly" => $exactly , "frame" => $frame);
@@ -1145,7 +1202,15 @@ class XHEBaseDOMVisual extends XHEBaseDOM
 
 		return new XHEInterfaces($res,$this->server,$this->password);
         }
-        // получить все элементы c заданными значениями свойств
+	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ xpath
+	function get_all_by_xpath($xpath)
+	{
+		$params = array( "xpath" => $xpath );
+		$res=$this->call_get(__FUNCTION__,$params);
+
+		return new XHEInterfaces($res,$this->server,$this->password);
+	}	
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ c пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         function get_all_by_properties($properties,$frame=-1)
         {
 		$params = array( "properties" => $properties , "frame" => $frame);
@@ -1153,5 +1218,21 @@ class XHEBaseDOMVisual extends XHEBaseDOM
 
 		return new XHEInterfaces($res,$this->server,$this->password);
         }
+	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ JS пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+	function run_js_by_number($number,$js,$frame=-1)
+	{
+		$this->wait_element_exist_by_number($number,$frame);
+
+		$params = array( "number" => $number , "js" => $js , "frame" => $frame);
+		return  $this->call_get(__FUNCTION__,$params);
+	}
+	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ JS пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+	function run_js_by_attribute($attr_name,$attr_value,$exactly,$js,$frame=-1)
+	{
+		$this->wait_element_exist_by_attribute($attr_name,$attr_value,$exactly,$frame);
+
+		$params = array( "attr_name" => $attr_name , "attr_value" => $attr_value , "exactly" => $exactly , "js" => $js , "frame" => $frame);
+		return $this->call_get(__FUNCTION__,$params);
+	}
 };
 ?>

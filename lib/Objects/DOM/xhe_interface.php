@@ -84,9 +84,9 @@ class XHEInterface extends XHEInterfaceCompatible
 		return $this->call_boolean(__FUNCTION__,$params);
 	}
    	// скроллировать страницу чтобы увидеть этот элемент
-	function scroll_to_view($start)
+	function scroll_to_view($start,$smooth=false)
 	{
-		$params = array( "inner_number" => $this->inner_number , "start" => $start );
+		$params = array( "inner_number" => $this->inner_number , "start" => $start , "smooth" => $smooth);
 		return $this->call_boolean(__FUNCTION__,$params);
 	}
    	// скроллировать 
@@ -99,6 +99,18 @@ class XHEInterface extends XHEInterfaceCompatible
 	function check($needCheck = true)
 	{
 		$params = array( "inner_number" => $this->inner_number , "check" => $needCheck );
+		return $this->call_boolean(__FUNCTION__,$params);
+	}
+        // переместить курсор в конец
+	function seek_to_end()
+	{
+		$params = array( "inner_number" => $this->inner_number);
+		return $this->call_boolean(__FUNCTION__,$params);
+	}
+        // переместить курсор в конец
+	function seek_to_pos($pos)
+	{
+		$params = array( "inner_number" => $this->inner_number , "pos" => $pos );
 		return $this->call_boolean(__FUNCTION__,$params);
 	}
 
@@ -150,8 +162,20 @@ class XHEInterface extends XHEInterfaceCompatible
 		$params = array( "inner_number" => $this->inner_number , "file_path" => $file_path );
 		return $this->call_boolean(__FUNCTION__,$params);
 	}
+  	// выполнить JS на элементе
+	function run_js($js)
+	{
+		$params = array( "inner_number" => $this->inner_number , "js" => $js );
+		return $this->call_get(__FUNCTION__,$params);
+	}
 	// получить тэг
 	function get_tag()
+	{
+		$params = array( "inner_number" => $this->inner_number );
+		return $this->call_get(__FUNCTION__,$params);
+	}
+	// получить тип
+	function get_type()
 	{
 		$params = array( "inner_number" => $this->inner_number );
 		return $this->call_get(__FUNCTION__,$params);
@@ -198,6 +222,12 @@ class XHEInterface extends XHEInterfaceCompatible
 		$params = array( "inner_number" => $this->inner_number );
 		return $this->call_get(__FUNCTION__,$params);
         }
+	// получить вычисляемый стиль
+	function get_computed_style($style_name="",$pseudo="")
+	{
+		$params = array( "inner_number" => $this->inner_number , "style_name" => $style_name , "pseudo" => $pseudo );
+		return $this->call_get(__FUNCTION__,$params);
+	}
         // получить значение
         function get_value()
         {
@@ -273,7 +303,10 @@ class XHEInterface extends XHEInterfaceCompatible
         // проверка существования
         function is_exist()
         {
-		return $this->inner_number!=-1;
+		if ($this->inner_number==-1)
+			return false;
+		$params = array( "inner_number" => $this->inner_number );
+		return $this->call_boolean(__FUNCTION__,$params);
         }
         // проверка видимости
         function is_visibled()
@@ -288,8 +321,13 @@ class XHEInterface extends XHEInterfaceCompatible
 		return $this->call_boolean(__FUNCTION__,$params);
         }
         // сделать видимым (прокрутить до видимости)
-        function ensure_visible()
+        function ensure_visible($smooth=false)
         {
+		if ($smooth)
+		{
+			$params = array( "inner_number" => $this->inner_number , "smooth" => $smooth );
+			return $this->call_boolean(__FUNCTION__,$params);
+		}
 		if ($this->inner_number==-1)
 			return false;
 		global $browser;
@@ -316,15 +354,15 @@ class XHEInterface extends XHEInterfaceCompatible
 	}
 
         // получить X координату
-	function get_x()
+	function get_x($in_view=false)
 	{
-		$params = array( "inner_number" => $this->inner_number );
+		$params = array( "inner_number" => $this->inner_number , "in_view" => $in_view );
 		return $this->call_get(__FUNCTION__,$params);
 	}
         // получить Y координату
-	function get_y()
+	function get_y($in_view=false)
 	{
-		$params = array( "inner_number" => $this->inner_number );
+		$params = array( "inner_number" => $this->inner_number , "in_view" => $in_view );
 		return $this->call_get(__FUNCTION__,$params);
 	}
         // получить ширину
@@ -461,27 +499,27 @@ class XHEInterface extends XHEInterfaceCompatible
 		return new XHEInterface($child_inner_number,$this->server,$this->password);
 	}
 	// get all child interfaces by inner text
-	function get_all_child_by_inner_text($inner_text,$exactly=false)
+	function get_all_child_by_inner_text($inner_text,$exactly=false,$include_subchildren=false)
 	{		
-		$params = array( "inner_number" => $this->inner_number , "inner_text" => $inner_text , "exactly" => $exactly );
+		$params = array( "inner_number" => $this->inner_number , "inner_text" => $inner_text , "exactly" => $exactly, "include_subchildren" => $include_subchildren );
 		$child_inner_number=-1;
 		if ($this->inner_number!=-1)
 			$child_inner_number=$this->call_get(__FUNCTION__,$params);
 		return new XHEInterfaces($child_inner_number,$this->server,$this->password);
 	}
 	// get all child interfaces by inner html
-	function get_all_child_by_inner_html($inner_html,$exactly=false)
+	function get_all_child_by_inner_html($inner_html,$exactly=false,$include_subchildren=false)
 	{		
-		$params = array( "inner_number" => $this->inner_number , "inner_html" => $inner_html , "exactly" => $exactly );
+		$params = array( "inner_number" => $this->inner_number , "inner_html" => $inner_html , "exactly" => $exactly , "include_subchildren" => $include_subchildren);
 		$child_inner_number=-1;
 		if ($this->inner_number!=-1)
 			$child_inner_number=$this->call_get(__FUNCTION__,$params);
 		return new XHEInterfaces($child_inner_number,$this->server,$this->password);
 	}
 	// get all child interfaces by attribute
-	function get_all_child_by_attribute($atr_name,$atr_value,$exactly=true)
+	function get_all_child_by_attribute($atr_name,$atr_value,$exactly=true,$include_subchildren=false)
 	{		
-		$params = array( "inner_number" => $this->inner_number , "attr_name" => $atr_name , "attr_value" => $atr_value , "exactly" => $exactly );
+		$params = array( "inner_number" => $this->inner_number , "attr_name" => $atr_name , "attr_value" => $atr_value , "exactly" => $exactly , "include_subchildren" => $include_subchildren);
 		$child_inner_number=-1;
 		if ($this->inner_number!=-1)
 			$child_inner_number=$this->call_get(__FUNCTION__,$params);

@@ -69,7 +69,7 @@ class XHECheckButton  extends XHECheckButtonCompatible
         }
 
 	// чекнуть все элементы (без учета проверки : существует ли элемент)
-	function check_all($check,$frame=-1) 
+	function check_all($check=true,$frame=-1) 
 	{
 		$params = array( "check" => $check , "frame" => $frame );
 		return $this->call_boolean(__FUNCTION__,$params);

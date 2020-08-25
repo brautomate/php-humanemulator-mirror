@@ -64,7 +64,7 @@ class Anticaptcha
         $postData = array(
             "clientKey" =>  $this->clientKey,
             "task"      =>  $this->getPostData(),
-	    "softid"      =>  15,
+	    "softId"      =>  927,
 	    "languagePool" => $this->langusgePool
         );
         $submitResult = $this->jsonPostRequest("createTask", $postData);

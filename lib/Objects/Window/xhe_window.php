@@ -121,6 +121,22 @@ class XHEWindow extends XHEWindowCompatible
 
 		return new XHEWindowInterface($internal_number,$this->server,$this->password);
 	}	
+	// получить интерфейс окна с котрым работает пользователь
+	function get_foreground_window()
+	{
+		$params = array( );
+		$internal_number=$this->call_get(__FUNCTION__,$params);
+
+		return new XHEWindowInterface($internal_number,$this->server,$this->password);
+	}	
+	// получить интерфейс окна с фокусом
+	function get_focused_window()
+	{
+		$params = array( );
+		$internal_number=$this->call_get(__FUNCTION__,$params);
+
+		return new XHEWindowInterface($internal_number,$this->server,$this->password);
+	}	
 
 	/////////////////////////////////////////////////////////////////////////////////////////////////////
 

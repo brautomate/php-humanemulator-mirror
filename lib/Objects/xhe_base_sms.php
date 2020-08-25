@@ -118,13 +118,26 @@ class XHEBaseSMS
         }
     
         echo("$this->servis Получили ответ $this->answer<br>");
+        
+        $state_acc="";
+        $text=""; 
+        $code="";
+
         // разбираем полученные данные
-        list($state_acc, $text, $code)=explode(':',$this->answer);
+        if(substr_count($this->answer,":")==2)
+        {
+           list($state_acc, $text, $code)=explode(':',$this->answer);
+        }
+        else if(substr_count($this->answer,":")==1)
+        {
+           list($state_acc, $code)=explode(':',$this->answer);
+        }
+
 
         // если пришел номер телефона
         if($state_acc=="STATUS_OK")
         {
-            debug_mess("$this->servis Получили код телефона ".$code.", вводим");
+            echo("$this->servis Получили код телефона ".$code.", вводим");
             $this->code=$code;
         }
         else

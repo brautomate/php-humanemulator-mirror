@@ -74,6 +74,19 @@ class XHERaw extends XHEBaseObject
 	   	$params = array( "num" => $num );
 	    	return $this->call_get(__FUNCTION__,$params);
 	}
+     	// получить последние запрошенные POST данные по номеру в массиве последних запросов
+	function get_last_request_post_datas($num=-1,$decode=true)
+	{
+	   	$params = array( "num" => $num );
+		$received = $this->call_get(__FUNCTION__,$params);
+		if ($received=="false")
+			return false;
+	    	$res = explode("<##br##>",$received);
+		if ($decode)
+			for ($i=0;$i<count($res);$i++)
+				$res[$i]=base64_decode($res[$i]);
+		return $res;
+	}
 
      	// получить последний отвеченный урл по номеру в массиве последних ответов
 	function get_last_response_url($num=-1)
@@ -145,6 +158,12 @@ class XHERaw extends XHEBaseObject
 	}
      	// задать хук на начало приема информации браузером от сервера
 	function set_hook_on_response($php_script_path)
+	{
+	   	$params = array( "php_script_path" => $php_script_path );
+	    	return $this->call_boolean(__FUNCTION__,$params);
+	}
+     	// задать хук на загрузку контента в барузер
+	function set_hook_on_readed($php_script_path)
 	{
 	   	$params = array( "php_script_path" => $php_script_path );
 	    	return $this->call_boolean(__FUNCTION__,$params);

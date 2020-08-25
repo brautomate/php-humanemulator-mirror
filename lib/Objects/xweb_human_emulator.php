@@ -6,36 +6,6 @@
 if (!defined("___XHE___"))
 {
 
-// использовать PHP через хуман (используется для обмена через STDIN с хуманом)
-if (!isset($PHP_Use_Trought_Shell))
-	$PHP_Use_Trought_Shell=false; 
-if (empty($xhe_host) or $xhe_host=="")
-	$xhe_host ="127.0.0.1:7010";  
-
-// получим настоящий порт
-/*$real_port="";
-if ($PHP_Use_Trought_Shell)
-	$real_port=trim(fgets(STDIN));
-
-// XWeb human emulator host
-if (empty($xhe_host) or $xhe_host=="")
-{
-  if ($real_port=="")
-  $xhe_host ="127.0.0.1:7010"; 
-  else
-	$xhe_host ="127.0.0.1:".$real_port; 
-}
-else
-{
-  if ($real_port!="")
-	$xhe_host ="127.0.0.1:".$real_port; 	
-}
-echo $xhe_host;*/
-
-// XWeb human emulator password
-if (empty($server_password) or $server_password=="")
-  $server_password="";
-
 // базовый общий для всех
 include("Objects/xhe_base.php");
 // базовый список
@@ -189,11 +159,39 @@ include("Objects/Window/xhe_windowsshell.php");
 include("Objects/Window/xhe_window.php");
 
 // Plugins
-include("Objects/Plugins/XHEPlugin_ObjectsSample.php");
-include("Objects/Plugins/XHEPlugin_ProxyChecker.php");
-
+include("Objects/Plugins/XHEPlugin_ObjectsSample.php" );
 
 /////////////////////////////////////////////////////////////////////////// Objects
+
+// использовать PHP через хуман (используется для обмена через STDIN с хуманом)
+if (!isset($PHP_Use_Trought_Shell))
+	$PHP_Use_Trought_Shell=false; 
+if (empty($xhe_host) or $xhe_host=="")
+	$xhe_host ="127.0.0.1:7010";  
+
+// получим настоящий порт
+/*$real_port="";
+if ($PHP_Use_Trought_Shell)
+	$real_port=trim(fgets(STDIN));
+
+// XWeb human emulator host
+if (empty($xhe_host) or $xhe_host=="")
+{
+  if ($real_port=="")
+  $xhe_host ="127.0.0.1:7010"; 
+  else
+	$xhe_host ="127.0.0.1:".$real_port; 
+}
+else
+{
+  if ($real_port!="")
+	$xhe_host ="127.0.0.1:".$real_port; 	
+}
+echo $xhe_host;*/
+
+// XWeb human emulator password
+if (empty($server_password) or $server_password=="")
+  $server_password="";
 
 $anticapcha= new XHEAnticapcha("antigate.com");
 
@@ -305,17 +303,15 @@ include("xweb_workspace_system.php");
 include("xweb_workspace_web.php");
 include("xweb_workspace_window.php");
 
-// Plugins
-$sampleobject=new XHESampleObject($xhe_host,$server_password);
 
 // run options
 $bClosePHPIfNotConnected=false; // закрывать PHP если нет соединения с хуманом
 $bWarningPHPIfNotConnected=true; // предупреждать в окне отладке если нет соединения с хуманом
-$Wait_Try_Navigate_Second=15; // сколько секунд ждать успешность навигации 
+$Wait_Try_Navigate_Second=30; // сколько секунд ждать успешность навигации 
 $Wait_Try_Navigate_Count=1; // сколько раз пытаться осуществить навигацию
-$bUTF8Ver=false; // юникод и не юникод кодировка скрипта
+$bUTF8Ver=false; // юникод и не юникод версия хумана
 $bWaitElementExistBeforeAction=false; // проверять есть ли заданный элемент на странице перед действием
-$iSecondsWaitElementExistBeforeAction=15; // сколько секунд ждать появления элемента
+$iSecondsWaitElementExistBeforeAction=30; // сколько секунд ждать появления элемента
 
 // log option
 $bShowInfoByPHPConfiguration=false;
@@ -351,7 +347,7 @@ define ("_CONTENT_", "0");
 define ("_EXACT_", "1");
 define ("_REGULAR_", "2");
 // default timeout for execute command (seconds)
-XHEBaseObject::$COMMAND_TIME=100;
+XHEBaseObject::$COMMAND_TIME=120;
 // default count of try execute command
 XHEBaseObject::$COMMAND_TRY_COUNT=3;
 
