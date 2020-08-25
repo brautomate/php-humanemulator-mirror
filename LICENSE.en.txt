@@ -1,0 +1,115 @@
+http://webemulator.com/terms-of-use
+
+License agreement on use of the software product for computers of «Browser Automation Studio»
+
+Dear User! Before installing, copying or otherwise using the Software product, carefully read the terms of its use contained in this Agreement. Installation, starting, or otherwise the beginning of use of the Software product means conclusion of this Agreement and Your acceptance to all of its terms. If You do not agree unconditionally accept the terms of this Agreement, You may not install and use the Software product and need to remove all of its components from your computer (the computer).
+
+License agreement
+
+This License agreement (hereinafter – Agreement) is concluded between the administration of the site http://webemulator.com (the ” Licensor) and any physical person (further – the User).
+
+1. Definitions of terms
+
+    The software product is a program for electronic computing machines (computers) «Browser Automation Studio», including all modules of the program the structure of the database, the source code and documentation in the electronic form, which are the object of civil law and are protected by law.
+
+    Documentation – the printed materials and the media, containing documents in electronic form, revealing the functionality, operation and adjustment, the internal structure and the structure of the database, and other components of the Software product. Documentation is an integral part of the Software product.
+
+    License (a simple (non-exclusive) license) is the right to use the Software product with retention by the Licensor of the right of issuance of licenses to other persons.
+
+    The use of the Software product – any actions, connected with functioning of the Program in accordance with its purpose (including recording in the memory of the computer).
+
+    Demo version – the version of the Software product, in which it is established limit on the period of its use and which is intended solely for the purpose of self-examination, evaluation and verification of the User of the functional possibilities of the Program.
+
+    Technical support – support activities implemented by the Licensor within the limits and scope for the operation of the Software product, including information and advice to the Users on the use of the Software product.
+
+    Distribution – a set of files required to install the Software product on a User’s equipment.
+
+2. Subject of the agreement
+
+    Under this Agreement, the Licensor undertakes to transfer to the User the right to use the Software product on the basis of a simple (nonexclusive) license.
+
+    The user undertakes to pay the granted rights to use the Software product in accordance with the terms of this Agreement.
+
+    All proprietary rights in the Software product and Documentation are owned by Licensor, in virtue of the fact that he is the developer of the Software product and Documentation, and are protected by applicable on the territories of the Russian Federation and Laws of Ukraine.
+
+    The licensor grants the User the right to use the Software product without restrictions in the territory under the conditions and in the procedure stipulated by the applicable laws of the Russian Federation and Ukraine, as well as this Agreement.
+
+    All the further provisions of this Treaty relating to the use of the Software product is distributed as for the Software itself, and on the modifications of the Software product, executed by the Licensor.
+
+3. Copyrights and trademarks
+
+    The software product is the result of intellectual activity and the object of the copyright (computer program), which are regulated and protected by the laws of the Russian Federation and Ukraine on intellectual property and norms of international law.
+
+    Algorithms of the Software product and its source code (including any part of them) are the valuable trade secrets of the Licensor. Any use or use of the Software product in violation of the terms and conditions of this Agreement be considered a violation of the rights of the Licensor and is sufficient ground to deprive the User granted under this Agreement rights.
+
+    The licensor warrants that it has all the necessary under this Agreement, the rights for the provision of them to the User, including the documentation for the Software product.
+
+    Responsibility for infringement of copyright occurs in accordance with the current legislation of the Russian Federation and Ukraine.
+
+    This Agreement, the User is not granted any rights to use Trademarks and other marks of the Licensor and/or its partners.
+
+    The user may not under any circumstances, to remove, alter or make obscure information and information about copyrights, trademark rights or patents mentioned in the Program.
+
+4. The order of transfer of the rights and periods of validity of the agreement
+
+    The term of the Agreement from the moment of its conclusion: unlimited.
+
+    Not later than twenty-four (24) hours from the moment of payment the User and the date of payment, the Licensor transfers to the User the right to use the Software product on the basis of a simple (non-exclusive) license, as well as the Distribution of the Software product and Documentation in the electronic form by means of electronic communications (by loading the User from the site of the Licensor http://webemulator.com). Payment date the date of receipt of the funds on the account of the Licensor.
+
+    The fact of the transfer of rights to use the Software product on the basis of a simple (non-exclusive) is the downloading of the Software product User from the site of the Licensor (https://humanemulator.info/en/).
+
+5. Conditions of use of the Software product and restrictions
+
+    The present Agreement provides the right of installation (installation), launch and use one copy of the Software product in the framework of its functionality on a single computer (computer). The user of the Software product is provided the right to transfer the program to another computer (computers) an unlimited number of times with a preliminary removing the program and its distribution on the previous computer (computer).
+
+    The user has access to download new versions of the Software product and the possibility of online interaction with the technical support within 6 months from the date of purchase of the software with the possibility of a further extension of the period of updating and treatment in a support.
+
+    Repeated downloading Distribution is given the User for the duration of the Agreement.
+
+    For third-party development access to the software product may be granted to third parties by means of remote access to a computer (computers). Provide distribution of the program to third is prohibited.
+
+    The user has the right to change, add or delete files of the Software product only in cases stipulated by the legislation of the Russian Federation on the copyright.
+
+    The user has the right to make changes in the program code of the distribution of the program.
+
+    User may not use the Software product in any way, unless such use is contrary to or would result in violation of the current legislation of the Russian Federation and Ukraine.
+
+    In case of presence in the Internet distribution of the program with the identification number of the user (Distributions of the program have the unique identification numbers, закрепляющиеся for a specific user), the Licensor of the right to unilaterally terminate the Agreement with the user.
+
+6. The Responsibilities Of The Parties
+
+    The licensor is obliged to:
+        To give the User the right to use the Software product on the basis of a simple (nonexclusive) license.
+
+    The user is obliged to:
+        Pay for the rights to use the Software product in accordance with the terms of this Agreement.
+
+        The use of the transferred right to use the Software product, within the limits provided for by this Agreement.
+
+7. Technical support
+
+    Licensor provides Technical support of functioning of the Software product, including on issues related to functionality, the peculiarities of installation and operation of the standard configurations supported (popular) operating systems the Software product in the manner and under the conditions established by the documents of the Licensor within 6 months from the date of purchase of the software. Extension of the period of receiving updates to be paid separately. Terms of product support you can find on the site: http://webemulator.com. The licensor is not obliged to answer questions that do not fall under these categories and do not meet the requirements specified in the above address.
+
+    The user may contact the Technical support service of the Licensor without payment of additional remuneration in the period of 6 months from the date of purchase of the software. Extension of the period of treatment to the support service is included in the cost of extending the period of receiving updates the program.
+
+8. Confidentiality
+
+The privacy policy please refer to the website of the program: http://webemulator.com/privacy-policy.
+
+9. Responsibility of the parties
+
+    The licensor shall not be liable to User or any third party for any damages, claims or losses, whatever they were, including claims for loss of profits, lost savings or other special, casual, or indirect damages, arising from use or non-use (including the inability to use) the Software product, regardless of the circumstances.
+
+    Licensor is not responsible for the actions of employees of the User, for the effects of the modification of the Software product manufactured by the User, and also a problem with the hardware-software and technical means of the User, hardware failures, or the results of any actions of third persons.
+
+10. Limited warranty
+
+    If you are using the Software product will be detected errors, the Licensor will take measures to correct them as quickly as possible. The parties agree that the exact definition of the term of elimination of errors cannot be installed because the Software product is closely interacts with other programs for computers of third-party developers, operating system and the hardware resources of a computer User, and performance and the elimination of problems in full measure does not depend only from the Licensor.
+
+11. Procedure for resolution of disputes
+
+    In all matters not regulated by the present Agreement, the Parties are guided by the current legislation of Ukraine.
+
+    The licensor has the right in case of User’s breach of the terms of this Agreement on the use of the software, including, but not limited to the provisions of the section of this Agreement unilaterally terminate this Agreement by notifying the User.
+
+    Upon the termination of this Agreement by any party and for any reason, the User must stop using the Program completely and destroy all copies of the Programs that are installed on users ‘ computers, including backup copies, and all components of the Program.
