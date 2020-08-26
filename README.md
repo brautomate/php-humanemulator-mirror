@@ -1,9 +1,9 @@
 # php-humanemulator-mirror
 
-This is a readonly mirror for official HumanEmulator's php client.
+This is a readonly mirror for official HumanEmulator/WebEmulator's php client.
 
-- Web: <https://gitee.com/brautomate/php-humanemulator-mirror>
-- Issues: <https://gitee.com/brautomate/php-humanemulator-mirror/issues>
+- Web: <https://github.com/brautomate/php-humanemulator-mirror>
+- Issues: <https://github.com/brautomate/php-humanemulator-mirror/issues>
 - My email: <va@brautomate.ru>
 
 ## HumanEmulator (WebEmulator)
