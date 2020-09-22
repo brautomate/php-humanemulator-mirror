@@ -46,21 +46,21 @@ class XHEKeyboard extends XHEKeyboardCompatible
 		return $res;
    	}
 	// эммулирует ввод одной кнопки по ее скан коду
-   	function key($code)
+   	function key($code,$is_key=true)
    	{
-		$params = array( "code" => $code  );
+		$params = array( "code" => $code , "is_key" => $is_key );
 		return $this->call_boolean(__FUNCTION__,$params);
    	}   
 	// эмулирует нажатие клавиши
-   	function key_down($key)
+   	function key_down($key,$is_key=true)
    	{
-		$params = array( "key" => $key  );
+		$params = array( "key" => $key , "is_key" => $is_key );
 		return $this->call_boolean(__FUNCTION__,$params);
    	}
 	// эмулирует отжатие клавиши
-   	function key_up($key)
+   	function key_up($key,$is_key=true)
    	{
-		$params = array( "key" => $key  );
+		$params = array( "key" => $key , "is_key" => $is_key );
 		return $this->call_boolean(__FUNCTION__,$params);
    	}
 

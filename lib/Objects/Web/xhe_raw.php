@@ -68,6 +68,12 @@ class XHERaw extends XHEBaseObject
 	   	$params = array( "num" => $num );
 	    	return $this->call_get(__FUNCTION__,$params);
 	}
+     	// получить последний запрошенный урл фрейма, сделавший запрос по номеру в массиве последних запросов
+	function get_last_request_frame_url($num=-1)
+	{
+	   	$params = array( "num" => $num );
+	    	return $this->call_get(__FUNCTION__,$params);
+	}
      	// получить последний запрошенный заголовок по номеру в массиве последних запросов
 	function get_last_request_header($num=-1)
 	{

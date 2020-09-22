@@ -321,11 +321,13 @@ class XHEInterface extends XHEInterfaceCompatible
 		return $this->call_boolean(__FUNCTION__,$params);
         }
         // сделать видимым (прокрутить до видимости)
-        function ensure_visible($smooth=false)
+        function ensure_visible($smooth=false,$side="start")
         {
-		if ($smooth)
+		if ($this->is_view_now() && $side=="start")
+			return;
+		if ($smooth || $side!="start")
 		{
-			$params = array( "inner_number" => $this->inner_number , "smooth" => $smooth );
+			$params = array( "inner_number" => $this->inner_number , "smooth" => $smooth , "side" => $side );
 			return $this->call_boolean(__FUNCTION__,$params);
 		}
 		if ($this->inner_number==-1)
