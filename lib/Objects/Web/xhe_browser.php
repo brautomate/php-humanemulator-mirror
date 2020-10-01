@@ -400,7 +400,7 @@ class XHEBrowser extends XHEBrowserCompatible
 		return $res;
 	}
 	// включить или выключить browser notification
-	function enable_browser_notification($enable=true,$show=true,$refresh=true)
+	function enable_browser_notification($enable=true,$show=false,$refresh=true)
 	{
 		$params = array( "enable" => $enable , "show" => $show , "refresh" => $refresh );
 		return $this->call_boolean(__FUNCTION__,$params);
