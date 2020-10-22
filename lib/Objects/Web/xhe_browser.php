@@ -774,9 +774,9 @@ class XHEBrowser extends XHEBrowserCompatible
 		return $this->call_get(__FUNCTION__,$params);
    	}	
 	// задать куки для заданного урла
-	function set_cookie_for_url($url,$name,$cookie,$expires="",$domain="",$path="",$httpOnly=false,$secure=false)
+	function set_cookie_for_url($url,$name,$cookie,$expires="",$domain="",$path="",$httpOnly=false,$secure=false,$session=false,$sameSite="",$priority="")
 	{
-		$params = array( "url" => $url , "name" => $name , "cookie" => $cookie , "expires" => $expires, "domain" => $domain, "path" => $path, "secure" => $secure, "httpOnly" => $httpOnly);
+		$params = array( "url" => $url , "name" => $name , "cookie" => $cookie , "expires" => $expires, "domain" => $domain, "path" => $path, "secure" => $secure, "httpOnly" => $httpOnly, "session" => $session, "sameSite" => $sameSite, "priority" => $priority);
 		return $this->call_boolean(__FUNCTION__,$params);
    	}
 	// импорт куков из заданног формата
@@ -899,10 +899,10 @@ class XHEBrowser extends XHEBrowserCompatible
 		else
 			return true;
 	}
-        // поулчить информацию о загрузке
-	function get_download_info($id)
+        // получить информацию о загрузке
+	function get_download_info($id, $infoPart="all")
 	{
-		$params = array( "id" => $id );
+		$params = array( "id" => $id , "infoPart" => $infoPart);
 		return $this->call_get(__FUNCTION__,$params);
 	}
         // отменить загрузку
